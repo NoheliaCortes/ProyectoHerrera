@@ -16,7 +16,7 @@ namespace ProyectoHerrera
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmInventario());
+            Application.Run(new frmInicio());
         }
     }
 }

@@ -39,12 +39,22 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnRegistrarProducto = new System.Windows.Forms.Button();
+            this.btnStock = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.btnStock);
             this.groupBox1.Controls.Add(this.dgvInventario);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.comboBox2);
@@ -73,7 +83,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(410, 57);
+            this.button4.Location = new System.Drawing.Point(637, 55);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 9;
@@ -83,7 +93,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(264, 57);
+            this.comboBox2.Location = new System.Drawing.Point(260, 57);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 8;
@@ -91,7 +101,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(220, 57);
+            this.label3.Location = new System.Drawing.Point(216, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 7;
@@ -125,7 +135,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(629, 328);
+            this.button3.Location = new System.Drawing.Point(506, 328);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(111, 23);
             this.button3.TabIndex = 3;
@@ -134,7 +144,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(503, 329);
+            this.button2.Location = new System.Drawing.Point(380, 329);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 23);
             this.button2.TabIndex = 2;
@@ -143,13 +153,57 @@
             // 
             // btnRegistrarProducto
             // 
-            this.btnRegistrarProducto.Location = new System.Drawing.Point(374, 329);
+            this.btnRegistrarProducto.Location = new System.Drawing.Point(251, 329);
             this.btnRegistrarProducto.Name = "btnRegistrarProducto";
             this.btnRegistrarProducto.Size = new System.Drawing.Size(111, 26);
             this.btnRegistrarProducto.TabIndex = 1;
             this.btnRegistrarProducto.Text = "Registrar  producto";
             this.btnRegistrarProducto.UseVisualStyleBackColor = true;
             this.btnRegistrarProducto.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnStock
+            // 
+            this.btnStock.Location = new System.Drawing.Point(637, 328);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(100, 23);
+            this.btnStock.TabIndex = 11;
+            this.btnStock.Text = "Gesionar Stock";
+            this.btnStock.UseVisualStyleBackColor = true;
+            this.btnStock.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(392, 60);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Peso:";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(432, 57);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(59, 21);
+            this.comboBox3.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(503, 60);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Medida:";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(554, 57);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(63, 21);
+            this.comboBox4.TabIndex = 15;
             // 
             // frmInventario
             // 
@@ -180,5 +234,10 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DataGridView dgvInventario;
+        private System.Windows.Forms.Button btnStock;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox4;
     }
 }
