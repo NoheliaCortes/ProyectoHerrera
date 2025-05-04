@@ -7,3 +7,12 @@ C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\obj\Debug\BN
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\obj\Debug\BNLayer.csproj.Up2Date
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\obj\Debug\BNLayer.dll
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\obj\Debug\BNLayer.pdb
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\BNLayer\bin\Debug\BNLayer.dll
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\BNLayer\bin\Debug\BNLayer.pdb
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\BNLayer\bin\Debug\DataLayer.dll
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\BNLayer\bin\Debug\DataLayer.pdb
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\BNLayer\obj\Debug\BNLayer.csproj.AssemblyReference.cache
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\BNLayer\obj\Debug\BNLayer.csproj.CoreCompileInputs.cache
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\BNLayer\obj\Debug\BNLayer.csproj.Up2Date
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\BNLayer\obj\Debug\BNLayer.dll
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\BNLayer\obj\Debug\BNLayer.pdb

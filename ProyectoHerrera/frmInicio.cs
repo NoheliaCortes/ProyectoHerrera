@@ -44,5 +44,10 @@ namespace ProyectoHerrera
             this.Hide();
 
         }
+
+        private void frmInicio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
