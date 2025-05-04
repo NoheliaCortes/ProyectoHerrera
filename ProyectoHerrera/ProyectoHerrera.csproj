@@ -52,11 +52,11 @@
     <Compile Include="fmrInventario.Designer.cs">
       <DependentUpon>fmrInventario.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAgregarStock.cs">
+    <Compile Include="frmGestionarStock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAgregarStock.Designer.cs">
-      <DependentUpon>frmAgregarStock.cs</DependentUpon>
+    <Compile Include="frmGestionarStock.Designer.cs">
+      <DependentUpon>frmGestionarStock.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEditarProducto.cs">
       <SubType>Form</SubType>
@@ -93,8 +93,8 @@
     <EmbeddedResource Include="fmrInventario.resx">
       <DependentUpon>fmrInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAgregarStock.resx">
-      <DependentUpon>frmAgregarStock.cs</DependentUpon>
+    <EmbeddedResource Include="frmGestionarStock.resx">
+      <DependentUpon>frmGestionarStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarProducto.resx">
       <DependentUpon>frmEditarProducto.cs</DependentUpon>

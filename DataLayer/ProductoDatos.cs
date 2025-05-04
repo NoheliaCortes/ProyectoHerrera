@@ -63,7 +63,33 @@ namespace DataLayer
             }
         }
 
+        public void ModificarStock(int idProducto, int cantidad)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE StockActual SET cantidad = cantidad + @Cantidad WHERE id_producto = @IdProducto", con);
+                cmd.Parameters.AddWithValue("@Cantidad", cantidad);
+                cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                cmd.ExecuteNonQuery();
+            }
+        }
 
+        public int ObtenerStockActual(int idProducto)
+        {
+            int stockActual = 0;
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT cantidad FROM StockActual WHERE id_producto = @IdProducto", con);
+                cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    stockActual = Convert.ToInt32(result);
+                }
+            }
+            return stockActual;
+        }
 
 
 

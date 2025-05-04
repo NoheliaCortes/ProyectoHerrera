@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnStock = new System.Windows.Forms.Button();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -39,11 +44,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnRegistrarProducto = new System.Windows.Forms.Button();
-            this.btnStock = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +72,50 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gestinar productos";
             // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(554, 57);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(63, 21);
+            this.comboBox4.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(503, 60);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Medida:";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(432, 57);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(59, 21);
+            this.comboBox3.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(392, 60);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Peso:";
+            // 
+            // btnStock
+            // 
+            this.btnStock.Location = new System.Drawing.Point(637, 328);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(100, 23);
+            this.btnStock.TabIndex = 11;
+            this.btnStock.Text = "Gesionar Stock";
+            this.btnStock.UseVisualStyleBackColor = true;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
+            // 
             // dgvInventario
             // 
             this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -79,7 +123,7 @@
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.Size = new System.Drawing.Size(739, 226);
             this.dgvInventario.TabIndex = 10;
-            this.dgvInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.dgvInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellContentClick);
             // 
             // button4
             // 
@@ -160,50 +204,6 @@
             this.btnRegistrarProducto.Text = "Registrar  producto";
             this.btnRegistrarProducto.UseVisualStyleBackColor = true;
             this.btnRegistrarProducto.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnStock
-            // 
-            this.btnStock.Location = new System.Drawing.Point(637, 328);
-            this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(100, 23);
-            this.btnStock.TabIndex = 11;
-            this.btnStock.Text = "Gesionar Stock";
-            this.btnStock.UseVisualStyleBackColor = true;
-            this.btnStock.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(392, 60);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Peso:";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(432, 57);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(59, 21);
-            this.comboBox3.TabIndex = 13;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(503, 60);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Medida:";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(554, 57);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(63, 21);
-            this.comboBox4.TabIndex = 15;
             // 
             // frmInventario
             // 

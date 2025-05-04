@@ -6,7 +6,6 @@ C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\DataLayer.pdb
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.csproj.AssemblyReference.cache
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmInventario.resources
-C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmAgregarStock.resources
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmEditarProducto.resources
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmInicio.resources
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmVenta.resources
@@ -18,3 +17,4 @@ C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.exe
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.pdb
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\ProyectoHerrera.pdb
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmGestionarStock.resources

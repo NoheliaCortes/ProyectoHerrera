@@ -23,6 +23,23 @@ namespace BNLayer
             productoDatos.InsertarProducto(producto);
         }
 
+        public void AgregarStock(int idProducto, int cantidad)
+        {
+            ProductoDatos productoDatos = new ProductoDatos();
+            productoDatos.ModificarStock(idProducto, cantidad);
+        }
+
+        public void EliminarStock(int idProducto, int cantidad)
+        {
+            ProductoDatos productoDatos = new ProductoDatos();
+            productoDatos.ModificarStock(idProducto, -cantidad); 
+        }
+
+        public int ObtenerStockActual(int idProducto)
+        {
+            ProductoNegocio productoNegocio = new ProductoNegocio();
+            return productoNegocio.ObtenerStockActual(idProducto);
+        }
 
 
 

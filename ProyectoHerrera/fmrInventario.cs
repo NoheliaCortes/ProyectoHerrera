@@ -24,6 +24,7 @@ namespace ProyectoHerrera
 
         private void frmInventario_Load(object sender, EventArgs e)
         {
+            
             CargarProductosConStock();
         }
         private void CargarProductosConStock()
@@ -36,10 +37,7 @@ namespace ProyectoHerrera
          
 
         }
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -47,7 +45,25 @@ namespace ProyectoHerrera
             frmRegistro.ShowDialog(); 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            if (dgvInventario.CurrentRow != null) // Alternativa más precisa para verificar la selección
+            {
+                int idProducto = Convert.ToInt32(dgvInventario.CurrentRow.Cells["IdProducto"].Value);
+
+                string nombreProducto = dgvInventario.CurrentRow.Cells["NombreProducto"].Value.ToString();
+
+                frmGestionarStock frmGestionarStock = new frmGestionarStock(idProducto, nombreProducto);
+                frmGestionarStock.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona un producto antes de gestionar su stock.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void dgvInventario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
