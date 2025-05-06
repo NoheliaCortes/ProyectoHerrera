@@ -30,6 +30,8 @@ C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\Proyect
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmGestionarStock.resources
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmEditarProducto.resources
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmInicio.resources
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmLogin.resources
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmProveedor.resources
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmVenta.resources
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmRegistrarProducto.resources
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.Properties.Resources.resources
@@ -38,4 +40,3 @@ C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\Proyect
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\Proyecto.925CF771.Up2Date
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.exe
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.pdb
-C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmLogin.resources
