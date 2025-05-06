@@ -51,10 +51,12 @@
     <Compile Include="Modelos\Peso.cs" />
     <Compile Include="Modelos\Producto.cs" />
     <Compile Include="Modelos\ProductoConStock.cs" />
+    <Compile Include="Modelos\Proveedor.cs" />
     <Compile Include="Modelos\Sabor.cs" />
     <Compile Include="PesoDatos.cs" />
     <Compile Include="ProductoDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveedorDatos.cs" />
     <Compile Include="SaborDatos.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace BNLayer
 {
@@ -16,5 +17,13 @@ namespace BNLayer
         {
             return saborDatos.ObtenerSabores();
         }
+
+        public DataTable ObtenerSaboresPorLinea(int idLinea)
+        {
+            SaborDatos saborDatos = new SaborDatos();
+            return saborDatos.ObtenerSaboresPorLinea(idLinea);
+        }
+
+
     }
 }

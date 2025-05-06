@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -165,6 +167,26 @@ namespace DataLayer
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public DataTable ObtenerProductoPorFiltros(int idLinea, int idSabor, int idMedida, int idPeso)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT id_producto, nombre_producto, precio FROM Producto WHERE id_linea = @idLinea AND id_sabor = @idSabor AND id_medida = @idMedida AND id_peso = @idPeso", con);
+                cmd.Parameters.AddWithValue("@idLinea", idLinea);
+                cmd.Parameters.AddWithValue("@idSabor", idSabor);
+                cmd.Parameters.AddWithValue("@idMedida", idMedida);
+                cmd.Parameters.AddWithValue("@idPeso", idPeso);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
+
+
+
 
     }
 

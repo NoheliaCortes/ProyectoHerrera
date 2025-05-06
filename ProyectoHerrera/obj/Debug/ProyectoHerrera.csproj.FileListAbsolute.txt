@@ -19,7 +19,6 @@ C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\Proyect
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.exe
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.pdb
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmLogin.resources
-C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.csproj.AssemblyReference.cache
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\ProyectoHerrera.exe.config
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\ProyectoHerrera.exe
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\ProyectoHerrera.pdb
@@ -27,11 +26,13 @@ C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\DataLayer.dll
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\BNLayer.pdb
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\DataLayer.pdb
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.csproj.AssemblyReference.cache
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmInventario.resources
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmActualizarProducto.resources
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmGestionarStock.resources
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmInicio.resources
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmLogin.resources
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmProveedor.resources
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmVenta.resources
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmRegistrarProducto.resources
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.Properties.Resources.resources

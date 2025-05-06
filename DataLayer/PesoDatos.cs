@@ -1,6 +1,7 @@
 ﻿using DataLayer.Modelos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -32,5 +33,21 @@ namespace DataLayer
             }
             return pesos;
         }
+
+        public DataTable ObtenerPesosPorMedida(int idMedida)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT id_peso, nombre_peso FROM Peso WHERE id_medida = @idMedida", con);
+                cmd.Parameters.AddWithValue("@idMedida", idMedida);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
+
+
     }
 }

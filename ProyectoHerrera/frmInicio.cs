@@ -59,5 +59,11 @@ namespace ProyectoHerrera
         {
 
         }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            frmProveedor frm = new frmProveedor();
+            frm.ShowDialog();
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace BNLayer
 {
@@ -16,5 +17,15 @@ namespace BNLayer
         {
             return medidaDatos.ObtenerMedidas();
         }
+
+        public DataTable ObtenerMedidasPorSabor(int idSabor)
+        {
+            MedidaDatos medidaDatos = new MedidaDatos();
+            return medidaDatos.ObtenerMedidasPorSabor(idSabor);
+        }
+
+
+
+
     }
 }

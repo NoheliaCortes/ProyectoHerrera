@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +57,11 @@ namespace BNLayer
         {
             ProductoDatos productoDatos = new ProductoDatos();
             productoDatos.EliminarProducto(idProducto);
+        }
+        public DataTable ObtenerProductoPorFiltros(int idLinea, int idSabor, int idMedida, int idPeso)
+        {
+            ProductoDatos productoDatos = new ProductoDatos();
+            return productoDatos.ObtenerProductoPorFiltros(idLinea, idSabor, idMedida, idPeso);
         }
 
 

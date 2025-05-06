@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace BNLayer
 {
@@ -16,5 +17,17 @@ namespace BNLayer
         {
             return pesoDatos.ObtenerPesos();
         }
+
+        public DataTable ObtenerPesosPorMedida(int idMedida)
+        {
+            PesoDatos pesoDatos = new PesoDatos();
+            return pesoDatos.ObtenerPesosPorMedida(idMedida);
+        }
+
+
+
+
+
     }
+
 }
