@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.txtCantidadMinima = new System.Windows.Forms.TextBox();
             this.txtDescuentoProducto = new System.Windows.Forms.TextBox();
             this.txtPrecioProducto = new System.Windows.Forms.TextBox();
@@ -57,8 +55,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtCantidadMinima);
             this.groupBox1.Controls.Add(this.txtDescuentoProducto);
             this.groupBox1.Controls.Add(this.txtPrecioProducto);
@@ -87,25 +83,9 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar Producto";
             // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(345, 62);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 22;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(225, 69);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 13);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "Stock inicial: ";
-            // 
             // txtCantidadMinima
             // 
-            this.txtCantidadMinima.Location = new System.Drawing.Point(345, 190);
+            this.txtCantidadMinima.Location = new System.Drawing.Point(345, 169);
             this.txtCantidadMinima.Name = "txtCantidadMinima";
             this.txtCantidadMinima.Size = new System.Drawing.Size(100, 20);
             this.txtCantidadMinima.TabIndex = 20;
@@ -113,21 +93,21 @@
             // 
             // txtDescuentoProducto
             // 
-            this.txtDescuentoProducto.Location = new System.Drawing.Point(345, 158);
+            this.txtDescuentoProducto.Location = new System.Drawing.Point(345, 137);
             this.txtDescuentoProducto.Name = "txtDescuentoProducto";
             this.txtDescuentoProducto.Size = new System.Drawing.Size(100, 20);
             this.txtDescuentoProducto.TabIndex = 19;
             // 
             // txtPrecioProducto
             // 
-            this.txtPrecioProducto.Location = new System.Drawing.Point(345, 122);
+            this.txtPrecioProducto.Location = new System.Drawing.Point(345, 101);
             this.txtPrecioProducto.Name = "txtPrecioProducto";
             this.txtPrecioProducto.Size = new System.Drawing.Size(100, 20);
             this.txtPrecioProducto.TabIndex = 18;
             // 
             // txtCostoProduccion
             // 
-            this.txtCostoProduccion.Location = new System.Drawing.Point(345, 94);
+            this.txtCostoProduccion.Location = new System.Drawing.Point(345, 73);
             this.txtCostoProduccion.Name = "txtCostoProduccion";
             this.txtCostoProduccion.Size = new System.Drawing.Size(100, 20);
             this.txtCostoProduccion.TabIndex = 17;
@@ -191,7 +171,7 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(225, 189);
+            this.label10.Location = new System.Drawing.Point(225, 168);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(114, 44);
             this.label10.TabIndex = 9;
@@ -200,7 +180,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(225, 161);
+            this.label9.Location = new System.Drawing.Point(225, 140);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 8;
@@ -209,7 +189,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(225, 130);
+            this.label8.Location = new System.Drawing.Point(225, 109);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 13);
             this.label8.TabIndex = 7;
@@ -218,7 +198,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(225, 97);
+            this.label7.Location = new System.Drawing.Point(225, 76);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 13);
             this.label7.TabIndex = 6;
@@ -318,7 +298,5 @@
         private System.Windows.Forms.ComboBox cmbLinea;
         private System.Windows.Forms.TextBox txtNombreProducto;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label11;
     }
 }

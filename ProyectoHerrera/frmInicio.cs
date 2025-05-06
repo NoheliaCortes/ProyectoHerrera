@@ -49,5 +49,15 @@ namespace ProyectoHerrera
         {
 
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInsumos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

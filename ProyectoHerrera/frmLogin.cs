@@ -70,5 +70,10 @@ namespace ProyectoHerrera
             txtUsuario.Clear();
             txtContraseña.Clear();
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -15,14 +15,19 @@ namespace ProyectoHerrera
     {
         private int idProducto;
         private string nombreProducto;
+       
+        public event EventHandler StockActualizado;
 
         public frmGestionarStock(int idProducto, string nombreProducto)
         {
             InitializeComponent();
             this.idProducto = idProducto;
             this.nombreProducto = nombreProducto;
+            
 
             txtProductoSeleccionado.Text = $"{nombreProducto}";
+
+            txtStockNuevo.Text = ObtenerStockActual().ToString();
         }
 
         private int ObtenerStockActual()
@@ -45,9 +50,11 @@ namespace ProyectoHerrera
                 productoNegocio.AgregarStock(idProducto, cantidad);
 
                 MessageBox.Show("Stock agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+             
 
                 txtStockNuevo.Text = ObtenerStockActual().ToString();
+
+              
 
             }
             catch (Exception ex)
@@ -67,8 +74,7 @@ namespace ProyectoHerrera
                 productoNegocio.EliminarStock(idProducto, cantidad);
 
                 MessageBox.Show("Stock eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-
+               
                 txtStockNuevo.Text = ObtenerStockActual().ToString();
 
             }
@@ -80,7 +86,15 @@ namespace ProyectoHerrera
 
         private void frmGestionarStock_Load(object sender, EventArgs e)
         {
+            int stockActual = ObtenerStockActual();
+            txtStockActual.Text = stockActual.ToString();
+            txtStockNuevo.Text = "";
+        }
 
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            StockActualizado?.Invoke(this, EventArgs.Empty);
+            this.Close();
         }
     }
 }

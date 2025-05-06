@@ -9,7 +9,7 @@ namespace DataLayer
 {
     public class Conexion
     {
-        private string connectionString = "Server=MARK42;Database=ProyectoHerrera; Trusted_Connection=True;Encrypt=False;";  //agregar la cadena de conexion
+        private string connectionString = "Server=localhost;Database=ProyectoHerrera; Trusted_Connection=True;Encrypt=False;";  //agregar la cadena de conexion
 
         // Método para obtener la conexión
         public SqlConnection ObtenerConexion()

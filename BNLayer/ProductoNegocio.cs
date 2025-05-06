@@ -37,10 +37,26 @@ namespace BNLayer
 
         public int ObtenerStockActual(int idProducto)
         {
-            ProductoNegocio productoNegocio = new ProductoNegocio();
-            return productoNegocio.ObtenerStockActual(idProducto);
+            return productoDatos.ObtenerStockActual(idProducto);
         }
 
+        public void ActualizarProducto(Producto producto)
+        {
+            ProductoDatos productoDatos = new ProductoDatos();
+            productoDatos.ActualizarProducto(producto);
+        }
+
+        public Producto ObtenerProductoPorId(int idProducto)
+        {
+            ProductoDatos productoDatos = new ProductoDatos();
+            return productoDatos.ObtenerProductoPorId(idProducto);
+        }
+
+        public void EliminarProducto(int idProducto)
+        {
+            ProductoDatos productoDatos = new ProductoDatos();
+            productoDatos.EliminarProducto(idProducto);
+        }
 
 
     }

@@ -91,7 +91,80 @@ namespace DataLayer
             return stockActual;
         }
 
+        public Producto ObtenerProductoPorId(int idProducto)
+        {
+            Producto producto = null;
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand(@"SELECT * FROM Producto WHERE id_producto = @IdProducto", con);
+                cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                SqlDataReader reader = cmd.ExecuteReader();
 
+                if (reader.Read())
+                {
+                    producto = new Producto
+                    {
+                        IdProducto = Convert.ToInt32(reader["id_producto"]),
+                        NombreProducto = reader["nombre_producto"].ToString(),
+                        PrecioProducto = Convert.ToDecimal(reader["precio_producto"]),
+                        CostoProduccion = Convert.ToDecimal(reader["costo_produccion"]),
+                        DescuentoProducto = Convert.ToDecimal(reader["descuento_producto"]),
+                        CantidadMinimaDescuento = Convert.ToInt32(reader["cantidad_minima_descuento"]),
+                        IdLinea = Convert.ToInt32(reader["id_linea"]),
+                        IdSabor = Convert.ToInt32(reader["id_sabor"]),
+                        IdPeso = Convert.ToInt32(reader["id_peso"]),
+                        IdMedida = Convert.ToInt32(reader["id_medida"]),
+                        IdEnvase = Convert.ToInt32(reader["id_envase"])
+                    };
+                }
+            }
+            return producto;
+        }
+
+
+        public void ActualizarProducto(Producto producto)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand(@"UPDATE Producto 
+                                          SET nombre_producto = @NombreProducto, 
+                                              precio_producto = @PrecioProducto, 
+                                              costo_produccion = @CostoProduccion, 
+                                              descuento_producto = @DescuentoProducto, 
+                                              cantidad_minima_descuento = @CantidadMinimaDescuento, 
+                                              id_linea = @IdLinea, 
+                                              id_sabor = @IdSabor, 
+                                              id_peso = @IdPeso, 
+                                              id_medida = @IdMedida, 
+                                              id_envase = @IdEnvase
+                                          WHERE id_producto = @IdProducto", con);
+
+                cmd.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
+                cmd.Parameters.AddWithValue("@NombreProducto", producto.NombreProducto);
+                cmd.Parameters.AddWithValue("@PrecioProducto", producto.PrecioProducto);
+                cmd.Parameters.AddWithValue("@CostoProduccion", producto.CostoProduccion);
+                cmd.Parameters.AddWithValue("@DescuentoProducto", producto.DescuentoProducto);
+                cmd.Parameters.AddWithValue("@CantidadMinimaDescuento", producto.CantidadMinimaDescuento);
+                cmd.Parameters.AddWithValue("@IdLinea", producto.IdLinea);
+                cmd.Parameters.AddWithValue("@IdSabor", producto.IdSabor);
+                cmd.Parameters.AddWithValue("@IdPeso", producto.IdPeso);
+                cmd.Parameters.AddWithValue("@IdMedida", producto.IdMedida);
+                cmd.Parameters.AddWithValue("@IdEnvase", producto.IdEnvase);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void EliminarProducto(int idProducto)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM Producto WHERE id_producto = @IdProducto", con);
+                cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
 
     }
 

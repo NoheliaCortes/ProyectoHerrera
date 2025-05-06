@@ -111,6 +111,8 @@ namespace ProyectoHerrera
                 productoNegocio.RegistrarProducto(nuevoProducto);
 
                 MessageBox.Show("Producto registrado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ((frmInventario)Application.OpenForms["frmInventario"]).CargarProductosConStock();
                 this.Close(); // Cierra el formulario de registro
             }
             catch (Exception ex)
