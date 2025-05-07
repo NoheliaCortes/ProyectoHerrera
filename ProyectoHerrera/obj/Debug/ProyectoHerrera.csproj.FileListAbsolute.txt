@@ -8,7 +8,6 @@ C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\Proyect
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.csproj.AssemblyReference.cache
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmInventario.resources
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmGestionarStock.resources
-C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmEditarProducto.resources
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmInicio.resources
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmVenta.resources
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmRegistrarProducto.resources
@@ -41,3 +40,5 @@ C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\Proyecto.925CF771.Up2Date
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.exe
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.pdb
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmActualizarProducto.resources
+C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmProveedor.resources

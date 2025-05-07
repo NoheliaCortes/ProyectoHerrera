@@ -213,8 +213,9 @@ namespace ProyectoHerrera
             if (txtTelefono.Text.Length < 8)
             {
                 MessageBox.Show("El telefono debe tener al menos 8 digitos.","Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
             }
-            return false;
+            return true;
         }
 
         private void dgvProveedor_CellContentClick(object sender, DataGridViewCellEventArgs e)
