@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataLayer;
 using BNLayer;
+using DataLayer.Modelos;
 
 
 namespace ProyectoHerrera
@@ -24,9 +25,57 @@ namespace ProyectoHerrera
 
         private void frmInventario_Load(object sender, EventArgs e)
         {
-            
+
+            LineaNegocio lineaNegocio = new LineaNegocio();
+            cmbLinea.DataSource = lineaNegocio.ObtenerLineas();
+            cmbLinea.DisplayMember = "NombreLinea";
+            cmbLinea.ValueMember = "IdLinea";
+
+            SaborNegocio saborNegocio = new SaborNegocio();
+            cmbSabor.DataSource = saborNegocio.ObtenerSabores();
+            cmbSabor.DisplayMember = "NombreSabor";
+            cmbSabor.ValueMember = "IdSabor";
+
+            MedidaNegocio medidaNegocio = new MedidaNegocio();
+            cmbMedida.DataSource = medidaNegocio.ObtenerMedidas();
+            cmbMedida.DisplayMember = "NombreMedida";
+            cmbMedida.ValueMember = "IdMedida";
+
+       
+            PesoNegocio pesoNegocio = new PesoNegocio();
+            cmbPeso.DataSource = pesoNegocio.ObtenerPesos();
+            cmbPeso.DisplayMember = "NombrePeso";
+            cmbPeso.ValueMember = "IdPeso";
+
+
             CargarProductosConStock();
         }
+
+        private void cmbLinea_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (cmbLinea.SelectedItem != null)
+            {
+                int idLinea = ((Linea)cmbLinea.SelectedItem).IdLinea;
+
+
+                cmbSabor.Enabled = true;
+
+                SaborNegocio saborNegocio = new SaborNegocio();
+                cmbSabor.DataSource = saborNegocio.ObtenerSaboresPorLinea(idLinea);
+                cmbSabor.DisplayMember = "nombre_sabor";
+                cmbSabor.ValueMember = "id_sabor";
+            }
+            else
+            {
+                cmbSabor.Enabled = false;
+                cmbSabor.DataSource = null;
+            }
+
+        }
+
+
+
+
         public void CargarProductosConStock()
         {
             ProductoNegocio productoNegocio = new ProductoNegocio();
@@ -124,5 +173,7 @@ namespace ProyectoHerrera
         {
 
         }
+
+
     }
 }

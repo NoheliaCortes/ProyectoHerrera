@@ -39,12 +39,22 @@ namespace DataLayer
             DataTable dt = new DataTable();
             using (SqlConnection con = conexion.ObtenerConexion())
             {
-                SqlCommand cmd = new SqlCommand("SELECT id_sabor, nombre_sabor FROM Sabor WHERE id_linea = @idLinea", con);
+                SqlCommand cmd = new SqlCommand(@"
+                SELECT id_sabor, nombre_sabor 
+                FROM Sabores 
+                WHERE id_linea = @idLinea", con);
+
                 cmd.Parameters.AddWithValue("@idLinea", idLinea);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
             }
             return dt;
         }
+
+
+
+
+
+
     }
 }

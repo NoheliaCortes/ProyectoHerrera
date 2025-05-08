@@ -24,6 +24,5 @@ namespace BNLayer
             return saborDatos.ObtenerSaboresPorLinea(idLinea);
         }
 
-
     }
 }

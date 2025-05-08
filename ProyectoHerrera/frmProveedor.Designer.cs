@@ -45,52 +45,58 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(54, 63);
+            this.lblNombre.Location = new System.Drawing.Point(40, 51);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(56, 16);
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 0;
             this.lblNombre.Text = "Nombre";
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(49, 162);
+            this.lblTelefono.Location = new System.Drawing.Point(37, 132);
+            this.lblTelefono.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(61, 16);
+            this.lblTelefono.Size = new System.Drawing.Size(49, 13);
             this.lblTelefono.TabIndex = 1;
             this.lblTelefono.Text = "Telefono";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(161, 63);
+            this.txtNombre.Location = new System.Drawing.Point(121, 51);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(110, 22);
+            this.txtNombre.Size = new System.Drawing.Size(84, 20);
             this.txtNombre.TabIndex = 2;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(161, 156);
+            this.txtTelefono.Location = new System.Drawing.Point(121, 127);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(109, 22);
+            this.txtTelefono.Size = new System.Drawing.Size(83, 20);
             this.txtTelefono.TabIndex = 3;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // dgvProveedor
             // 
             this.dgvProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProveedor.Location = new System.Drawing.Point(306, 51);
+            this.dgvProveedor.Location = new System.Drawing.Point(230, 41);
+            this.dgvProveedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvProveedor.Name = "dgvProveedor";
             this.dgvProveedor.RowHeadersWidth = 51;
             this.dgvProveedor.RowTemplate.Height = 24;
-            this.dgvProveedor.Size = new System.Drawing.Size(482, 360);
+            this.dgvProveedor.Size = new System.Drawing.Size(362, 292);
             this.dgvProveedor.TabIndex = 4;
             this.dgvProveedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedor_CellContentClick);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(33, 204);
+            this.btnAgregar.Location = new System.Drawing.Point(25, 166);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(103, 28);
+            this.btnAgregar.Size = new System.Drawing.Size(77, 23);
             this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -98,9 +104,10 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(33, 260);
+            this.btnEliminar.Location = new System.Drawing.Point(25, 211);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(103, 28);
+            this.btnEliminar.Size = new System.Drawing.Size(77, 23);
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -108,9 +115,10 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(168, 204);
+            this.btnActualizar.Location = new System.Drawing.Point(126, 166);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(103, 28);
+            this.btnActualizar.Size = new System.Drawing.Size(77, 23);
             this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -118,9 +126,10 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(167, 260);
+            this.btnNuevo.Location = new System.Drawing.Point(125, 211);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(103, 28);
+            this.btnNuevo.Size = new System.Drawing.Size(77, 23);
             this.btnNuevo.TabIndex = 8;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
@@ -128,9 +137,10 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(46, 329);
+            this.btnCancelar.Location = new System.Drawing.Point(34, 267);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(115, 40);
+            this.btnCancelar.Size = new System.Drawing.Size(86, 32);
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -138,9 +148,10 @@
             // 
             // frmProveedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.LightGray;
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnActualizar);
@@ -151,6 +162,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.lblNombre);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmProveedor";
             this.Text = "Proveedores";
             this.Load += new System.EventHandler(this.FrmProveedor_Load);

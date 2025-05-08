@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cmbMedida = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbPeso = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnStock = new System.Windows.Forms.Button();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbSabor = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbLinea = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEliminarProducto = new System.Windows.Forms.Button();
@@ -50,16 +50,17 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.groupBox1.Controls.Add(this.cmbMedida);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.cmbPeso);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnStock);
             this.groupBox1.Controls.Add(this.dgvInventario);
             this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.cmbSabor);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbLinea);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnEliminarProducto);
@@ -67,19 +68,19 @@
             this.groupBox1.Controls.Add(this.btnRegistrarProducto);
             this.groupBox1.Location = new System.Drawing.Point(12, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 370);
+            this.groupBox1.Size = new System.Drawing.Size(911, 464);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gestinar productos";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // comboBox4
+            // cmbMedida
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(554, 57);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(63, 21);
-            this.comboBox4.TabIndex = 15;
+            this.cmbMedida.FormattingEnabled = true;
+            this.cmbMedida.Location = new System.Drawing.Point(554, 57);
+            this.cmbMedida.Name = "cmbMedida";
+            this.cmbMedida.Size = new System.Drawing.Size(63, 21);
+            this.cmbMedida.TabIndex = 15;
             // 
             // label5
             // 
@@ -90,13 +91,13 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Medida:";
             // 
-            // comboBox3
+            // cmbPeso
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(432, 57);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(59, 21);
-            this.comboBox3.TabIndex = 13;
+            this.cmbPeso.FormattingEnabled = true;
+            this.cmbPeso.Location = new System.Drawing.Point(432, 57);
+            this.cmbPeso.Name = "cmbPeso";
+            this.cmbPeso.Size = new System.Drawing.Size(59, 21);
+            this.cmbPeso.TabIndex = 13;
             // 
             // label4
             // 
@@ -132,16 +133,16 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 9;
-            this.button4.Text = "Aceptar";
+            this.button4.Text = "Buscar";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // cmbSabor
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(260, 57);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 8;
+            this.cmbSabor.FormattingEnabled = true;
+            this.cmbSabor.Location = new System.Drawing.Point(260, 57);
+            this.cmbSabor.Name = "cmbSabor";
+            this.cmbSabor.Size = new System.Drawing.Size(121, 21);
+            this.cmbSabor.TabIndex = 8;
             // 
             // label3
             // 
@@ -152,13 +153,14 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Sabor:";
             // 
-            // comboBox1
+            // cmbLinea
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(66, 57);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 6;
+            this.cmbLinea.FormattingEnabled = true;
+            this.cmbLinea.Location = new System.Drawing.Point(66, 57);
+            this.cmbLinea.Name = "cmbLinea";
+            this.cmbLinea.Size = new System.Drawing.Size(121, 21);
+            this.cmbLinea.TabIndex = 6;
+            this.cmbLinea.SelectedIndexChanged += new System.EventHandler(this.cmbLinea_SelectedIndexChanged_1);
             // 
             // label2
             // 
@@ -172,6 +174,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.label1.Location = new System.Drawing.Point(15, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
@@ -212,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(944, 528);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmInventario";
             this.Text = "frmInventario";
@@ -231,16 +234,16 @@
         private System.Windows.Forms.Button btnEliminarProducto;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbLinea;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbSabor;
         private System.Windows.Forms.DataGridView dgvInventario;
         private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cmbPeso;
+        private System.Windows.Forms.ComboBox cmbMedida;
     }
 }

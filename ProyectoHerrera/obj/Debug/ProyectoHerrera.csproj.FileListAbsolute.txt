@@ -42,3 +42,4 @@ C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.pdb
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmActualizarProducto.resources
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmProveedor.resources
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmClientes.resources

@@ -55,6 +55,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.LightGray;
             this.groupBox1.Controls.Add(this.txtCantidadMinima);
             this.groupBox1.Controls.Add(this.txtDescuentoProducto);
             this.groupBox1.Controls.Add(this.txtPrecioProducto);

@@ -184,6 +184,25 @@ namespace DataLayer
             return dt;
         }
 
+        public DataTable BuscarProductoConDescuento(int idLinea, int idSabor, int idMedida, int idPeso)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand(@"
+            SELECT id_producto, nombre_producto, precio_producto, descuento_producto, cantidad_minima_descuento 
+            FROM Producto
+            WHERE id_linea = @idLinea AND id_sabor = @idSabor AND id_medida = @idMedida AND id_peso = @idPeso", con);
+
+                cmd.Parameters.AddWithValue("@idLinea", idLinea);
+                cmd.Parameters.AddWithValue("@idSabor", idSabor);
+                cmd.Parameters.AddWithValue("@idMedida", idMedida);
+                cmd.Parameters.AddWithValue("@idPeso", idPeso);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
 
 
 

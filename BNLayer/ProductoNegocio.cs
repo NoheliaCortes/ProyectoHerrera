@@ -65,5 +65,13 @@ namespace BNLayer
         }
 
 
+        public DataTable BuscarProductoConDescuento(int idLinea, int idSabor, int idMedida, int idPeso)
+        {
+            ProductoDatos productoDatos = new ProductoDatos();
+            return productoDatos.BuscarProductoConDescuento(idLinea, idSabor, idMedida, idPeso);
+        }
+
+
+
     }
 }

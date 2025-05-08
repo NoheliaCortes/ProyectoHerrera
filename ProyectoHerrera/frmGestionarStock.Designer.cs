@@ -44,6 +44,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.LightGray;
             this.groupBox1.Controls.Add(this.btnAceptar);
             this.groupBox1.Controls.Add(this.btnEliminarStock);
             this.groupBox1.Controls.Add(this.btnAgregarStock);

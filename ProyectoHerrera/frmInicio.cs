@@ -41,7 +41,7 @@ namespace ProyectoHerrera
         {
             frmInventario nuevoFormulario = new frmInventario();
             nuevoFormulario.Show();
-            this.Hide();
+      
 
         }
 
@@ -64,6 +64,11 @@ namespace ProyectoHerrera
         {
             frmProveedor frm = new frmProveedor();
             frm.ShowDialog();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
