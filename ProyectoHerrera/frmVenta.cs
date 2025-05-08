@@ -23,29 +23,29 @@ namespace ProyectoHerrera
         private void frmVenta_Load(object sender, EventArgs e)
         {
 
-            //txtFactura.Text = ObtenerSiguienteFactura().ToString();
+           
             txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txtHora.Text = DateTime.Now.ToString("HH:mm:ss");
 
-            // ✅ Lineas (Lista)
+         
             LineaNegocio lineaNegocio = new LineaNegocio();
             cmbLinea.DataSource = lineaNegocio.ObtenerLineas();
             cmbLinea.DisplayMember = "NombreLinea";
-            cmbLinea.ValueMember = "IdLinea"; // Aunque es lista, seguimos definiendo ValueMember
+            cmbLinea.ValueMember = "IdLinea"; 
 
-            // ✅ Sabores (DataTable)
+            
             SaborNegocio saborNegocio = new SaborNegocio();
             cmbSabor.DisplayMember = "nombre_sabor";
-            cmbSabor.ValueMember = "id_sabor"; // DataTable necesita `ValueMember`
+            cmbSabor.ValueMember = "id_sabor"; 
             cmbSabor.Enabled = false;
 
-            // ✅ Medidas (Lista)
+         
             MedidaNegocio medidaNegocio = new MedidaNegocio();
             cmbMedida.DataSource = medidaNegocio.ObtenerMedidas();
             cmbMedida.DisplayMember = "NombreMedida";
             cmbMedida.ValueMember = "IdMedida";
 
-            // ✅ Pesos (Lista)
+           
             PesoNegocio pesoNegocio = new PesoNegocio();
             cmbPeso.DataSource = pesoNegocio.ObtenerPesos();
             cmbPeso.DisplayMember = "NombrePeso";

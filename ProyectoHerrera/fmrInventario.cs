@@ -21,8 +21,6 @@ namespace ProyectoHerrera
             InitializeComponent();
         }
 
-        
-
         private void frmInventario_Load(object sender, EventArgs e)
         {
 
