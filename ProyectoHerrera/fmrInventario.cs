@@ -96,7 +96,7 @@ namespace ProyectoHerrera
 
         private void btnStock_Click(object sender, EventArgs e)
         {
-            if (dgvInventario.CurrentRow != null) // Alternativa más precisa para verificar la selección
+            if (dgvInventario.CurrentRow != null) 
             {
                 int idProducto = Convert.ToInt32(dgvInventario.CurrentRow.Cells["IdProducto"].Value);
 
@@ -108,7 +108,7 @@ namespace ProyectoHerrera
 
                 frmGestionarStock.StockActualizado += (s, args) =>
                 {
-                    CargarProductosConStock(); // Recarga los datos
+                    CargarProductosConStock(); 
                 };
 
               
@@ -130,11 +130,11 @@ namespace ProyectoHerrera
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if (dgvInventario.CurrentRow != null) // Verifica si hay un producto seleccionado
+            if (dgvInventario.CurrentRow != null) 
             {
                 int idProducto = Convert.ToInt32(dgvInventario.CurrentRow.Cells["IdProducto"].Value);
 
-                // Abre el formulario de actualización y le pasa el ID del producto
+               
                 frmActualizarProducto frmActualizar = new frmActualizarProducto(idProducto);
                 frmActualizar.ShowDialog();
             }
@@ -160,7 +160,7 @@ namespace ProyectoHerrera
 
                     MessageBox.Show("Producto eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    CargarProductosConStock(); // Recargar el `DataGridView`
+                    CargarProductosConStock(); 
                 }
             }
             else

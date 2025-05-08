@@ -62,11 +62,11 @@ namespace ProyectoHerrera
         {
             if (cmbLinea.SelectedItem is Linea lineaSeleccionada)
             {
-                int idLinea = lineaSeleccionada.IdLinea; // ✅ Como `cmbLinea` usa lista, tomamos `SelectedItem`
+                int idLinea = lineaSeleccionada.IdLinea; 
                 cmbSabor.Enabled = true;
 
                 SaborNegocio saborNegocio = new SaborNegocio();
-                cmbSabor.DataSource = saborNegocio.ObtenerSaboresPorLinea(idLinea); // ✅ `ObtenerSaboresPorLinea()` es DataTable
+                cmbSabor.DataSource = saborNegocio.ObtenerSaboresPorLinea(idLinea); 
             }
         }
 
@@ -82,7 +82,7 @@ namespace ProyectoHerrera
                 }
             }
 
-            txtTotal.Text = total.ToString("F2"); // ✅ Formato con dos decimales
+            txtTotal.Text = total.ToString("F2"); 
         }
 
 
@@ -107,11 +107,11 @@ namespace ProyectoHerrera
                 return;
             }
 
-            // ✅ Extraer valores correctamente según tipo de `DataSource`
-            int idLinea = ((Linea)cmbLinea.SelectedItem).IdLinea; // Lista → `SelectedItem`
-            int idSabor = Convert.ToInt32(cmbSabor.SelectedValue); // DataTable → `SelectedValue`
-            int idMedida = ((Medida)cmbMedida.SelectedItem).IdMedida; // Lista → `SelectedItem`
-            int idPeso = ((Peso)cmbPeso.SelectedItem).IdPeso; // Lista → `SelectedItem`
+            
+            int idLinea = ((Linea)cmbLinea.SelectedItem).IdLinea; 
+            int idSabor = Convert.ToInt32(cmbSabor.SelectedValue); 
+            int idMedida = ((Medida)cmbMedida.SelectedItem).IdMedida; 
+            int idPeso = ((Peso)cmbPeso.SelectedItem).IdPeso; 
 
             ProductoNegocio productoNegocio = new ProductoNegocio();
             DataTable dtProducto = productoNegocio.BuscarProductoConDescuento(idLinea, idSabor, idMedida, idPeso);
