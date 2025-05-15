@@ -1,51 +1,71 @@
 ﻿using DataLayer.Modelos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static DataLayer.VentaDatos;
+using DataLayer;
 
 namespace BNLayer
 {
-    
     public class ClienteNegocio
     {
         private ClienteDatos clienteDatos = new ClienteDatos();
 
-        public void AgregarCliente(Cliente cliente)
+        public bool InsertarCliente(Cliente cliente)
         {
-            if (string.IsNullOrWhiteSpace(cliente.Nombre) || string.IsNullOrWhiteSpace(cliente.Apellido))
+            try
             {
-                throw new Exception("El nombre y apellido no pueden estar vacíos.");
+                return clienteDatos.InsertarCliente(cliente);
             }
-
-            if (cliente.Telefono.Length != 10 || !long.TryParse(cliente.Telefono, out _))
+            catch (Exception ex)
             {
-                throw new Exception("El teléfono debe tener exactamente 10 dígitos.");
+                // Podés loggear el error aquí si querés
+                throw new Exception("Error en la capa de negocio insertando cliente: " + ex.Message);
             }
+        }
 
-            clienteDatos.AgregarCliente(cliente);
+        public bool ActualizarCliente(Cliente cliente)
+        {
+            try
+            {
+                return clienteDatos.ActualizarCliente(cliente);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la capa de negocio actualizando cliente: " + ex.Message);
+            }
+        }
+
+        public bool EliminarCliente(int idCliente)
+        {
+            try
+            {
+                return clienteDatos.EliminarCliente(idCliente);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la capa de negocio eliminando cliente: " + ex.Message);
+            }
+        }
+
+        public bool CambiarEstadoCliente(int idCliente, string nuevoEstado)
+        {
+            try
+            {
+                return clienteDatos.CambiarEstadoCliente(idCliente, nuevoEstado);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la capa de negocio cambiando estado cliente: " + ex.Message);
+            }
         }
 
         public List<Cliente> ObtenerClientes()
         {
-            return clienteDatos.ObtenerClientes();
-        }
-
-        public void EditarCliente(Cliente cliente)
-        {
-            if (string.IsNullOrWhiteSpace(cliente.Nombre) || string.IsNullOrWhiteSpace(cliente.Apellido))
-            {
-                throw new Exception("El nombre y apellido no pueden estar vacíos.");
-            }
-
-            clienteDatos.EditarCliente(cliente);
-        }
-
-        public void EliminarCliente(int idCliente)
-        {
-            clienteDatos.EliminarCliente(idCliente);
+            return clienteDatos.ObtenerClientes(); 
         }
     }
+
 }

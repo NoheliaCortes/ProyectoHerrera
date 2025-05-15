@@ -12,7 +12,8 @@ namespace DataLayer.Modelos
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Telefono { get; set; }
-        public string Direccion { get; set; } // Puede ser `null`
+        public string Direccion { get; set; }
+        public bool Estado { get; set; } // true = activo, false = inactivo
     }
-
 }
+

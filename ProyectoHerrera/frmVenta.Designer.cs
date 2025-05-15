@@ -53,7 +53,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -258,9 +258,9 @@
             this.groupBox1.Controls.Add(this.cmbMedida);
             this.groupBox1.Controls.Add(this.cmbSabor);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Location = new System.Drawing.Point(211, 165);
+            this.groupBox1.Location = new System.Drawing.Point(99, 165);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(922, 123);
+            this.groupBox1.Size = new System.Drawing.Size(1144, 123);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Producto";
@@ -292,31 +292,31 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtFactura);
             this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Location = new System.Drawing.Point(238, 40);
+            this.groupBox2.Location = new System.Drawing.Point(99, 40);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(758, 65);
+            this.groupBox2.Size = new System.Drawing.Size(1144, 65);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Venta";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.cmbCliente);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Location = new System.Drawing.Point(238, 111);
+            this.groupBox3.Location = new System.Drawing.Point(99, 111);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(758, 48);
+            this.groupBox3.Size = new System.Drawing.Size(1144, 48);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos del cliente";
             // 
-            // comboBox1
+            // cmbCliente
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(65, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(296, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cmbCliente.FormattingEnabled = true;
+            this.cmbCliente.Location = new System.Drawing.Point(65, 26);
+            this.cmbCliente.Name = "cmbCliente";
+            this.cmbCliente.Size = new System.Drawing.Size(296, 21);
+            this.cmbCliente.TabIndex = 2;
             // 
             // label13
             // 
@@ -394,9 +394,9 @@
             this.Precio_Unitario,
             this.Descuento,
             this.Subtotal});
-            this.dgvProductos.Location = new System.Drawing.Point(225, 312);
+            this.dgvProductos.Location = new System.Drawing.Point(99, 312);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.Size = new System.Drawing.Size(908, 179);
+            this.dgvProductos.Size = new System.Drawing.Size(1144, 179);
             this.dgvProductos.TabIndex = 30;
             // 
             // Producto
@@ -495,7 +495,7 @@
         private System.Windows.Forms.TextBox txtCambio;
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

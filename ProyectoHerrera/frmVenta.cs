@@ -55,8 +55,20 @@ namespace ProyectoHerrera
             cmbMedida.Enabled = true;
             cmbPeso.Enabled = true;
 
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+            List<Cliente> clientes = clienteNegocio.ObtenerClientes();
 
+            cmbCliente.DataSource = clientes;
+            cmbCliente.DisplayMember = "Nombre"; 
+            cmbCliente.ValueMember = "IdCliente"; 
+
+            
+            cmbCliente.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
+
+
+        
 
         private void cmbLinea_SelectedIndexChanged(object sender, EventArgs e)
         {
