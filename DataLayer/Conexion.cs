@@ -11,7 +11,7 @@ namespace DataLayer
     {
         private string connectionString = "Server=DESKTOP-VSK4022\\SQLEXPRESS01;Database=ProyectoHerrera; Trusted_Connection=True;Encrypt=False;";  //agregar la cadena de conexion
 
-        // Método para obtener la conexión
+        // Método para obtener la conexió
         public SqlConnection ObtenerConexion()
         {
             try
