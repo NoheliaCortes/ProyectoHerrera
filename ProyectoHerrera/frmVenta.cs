@@ -10,16 +10,40 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using BNLayer;
 using DataLayer.Modelos;
+using System.Drawing.Drawing2D;
+using static ProyectoHerrera.Program;
 
 namespace ProyectoHerrera
 {
     public partial class frmVenta : Form
     {
+
+        public Usuario UsuarioLogueado { get; set; }
         public frmVenta()
         {
             InitializeComponent();
             this.Load += frmVenta_Load;
+
+
+
+
         }
+
+
+        public void RedondearPanel(Panel panel, int radio)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(new Rectangle(0, 0, radio, radio), 180, 90);
+            path.AddArc(new Rectangle(panel.Width - radio, 0, radio, radio), 270, 90);
+            path.AddArc(new Rectangle(panel.Width - radio, panel.Height - radio, radio, radio), 0, 90);
+            path.AddArc(new Rectangle(0, panel.Height - radio, radio, radio), 90, 90);
+            path.CloseFigure();
+            panel.Region = new Region(path);
+        }
+
+
+
         private void frmVenta_Load(object sender, EventArgs e)
         {
 
@@ -60,11 +84,22 @@ namespace ProyectoHerrera
 
             cmbCliente.DataSource = clientes;
             cmbCliente.DisplayMember = "Nombre"; 
-            cmbCliente.ValueMember = "IdCliente"; 
-
+            cmbCliente.ValueMember = "IdCliente";
             
+
+            UsuarioLogueado = SesionUsuario.UsuarioActual;
+
+            if (UsuarioLogueado != null)
+            {
+                txtUsuario.Text = $"{UsuarioLogueado.NombreUsuario} {UsuarioLogueado.ApellidoUsuario}";
+                txtUsuario.ReadOnly = true; // ✅ Evitar que el usuario cambie manualmente
+            }
+
+
             cmbCliente.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            RedondearPanel(PanelVentas, 35);
         }
 
 
@@ -105,25 +140,24 @@ namespace ProyectoHerrera
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             if (cmbLinea.SelectedItem == null || cmbSabor.SelectedValue == null ||
-         cmbMedida.SelectedItem == null || cmbPeso.SelectedItem == null ||
-         string.IsNullOrWhiteSpace(txtCantidad.Text))
+        cmbMedida.SelectedItem == null || cmbPeso.SelectedItem == null ||
+        string.IsNullOrWhiteSpace(txtCantidad.Text))
             {
                 MessageBox.Show("Por favor, llena todos los campos antes de agregar el producto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            int cantidad;
-            if (!int.TryParse(txtCantidad.Text, out cantidad) || cantidad <= 0)
+            if (!int.TryParse(txtCantidad.Text, out int cantidad) || cantidad <= 0)
             {
                 MessageBox.Show("Por favor, ingresa una cantidad válida.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            
-            int idLinea = ((Linea)cmbLinea.SelectedItem).IdLinea; 
-            int idSabor = Convert.ToInt32(cmbSabor.SelectedValue); 
-            int idMedida = ((Medida)cmbMedida.SelectedItem).IdMedida; 
-            int idPeso = ((Peso)cmbPeso.SelectedItem).IdPeso; 
+           
+            int idLinea = ((Linea)cmbLinea.SelectedItem).IdLinea;
+            int idSabor = Convert.ToInt32(cmbSabor.SelectedValue);
+            int idMedida = ((Medida)cmbMedida.SelectedItem).IdMedida;
+            int idPeso = ((Peso)cmbPeso.SelectedItem).IdPeso;
 
             ProductoNegocio productoNegocio = new ProductoNegocio();
             DataTable dtProducto = productoNegocio.BuscarProductoConDescuento(idLinea, idSabor, idMedida, idPeso);
@@ -131,22 +165,25 @@ namespace ProyectoHerrera
             if (dtProducto.Rows.Count > 0)
             {
                 DataRow row = dtProducto.Rows[0];
+
+                int idProducto = Convert.ToInt32(row["id_producto"]);
                 string nombreProducto = row["nombre_producto"].ToString();
                 decimal precio = Convert.ToDecimal(row["precio_producto"]);
-                decimal descuento = Convert.ToDecimal(row["descuento_producto"]);
-                int cantidadMinima = Convert.ToInt32(row["cantidad_minima_descuento"]);
+                decimal descuentoUnitario = Convert.ToDecimal(row["descuento_producto"]);
+                int cantidadMinimaDescuento = Convert.ToInt32(row["cantidad_minima_descuento"]);
 
-                if (cantidad >= cantidadMinima)
+                
+                if (!productoNegocio.VerificarStock(idProducto, cantidad))
                 {
-                    descuento = cantidad * descuento;
-                }
-                else
-                {
-                    descuento = 0m;
+                    MessageBox.Show($"No hay suficiente stock para {nombreProducto}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; 
                 }
 
+                
+                decimal descuento = cantidad >= cantidadMinimaDescuento ? cantidad * descuentoUnitario : 0m;
                 decimal subtotal = (cantidad * precio) - descuento;
 
+                
                 dgvProductos.Rows.Add(nombreProducto, cantidad, precio, descuento, subtotal);
                 CalcularTotal();
             }
@@ -172,6 +209,56 @@ namespace ProyectoHerrera
 
             decimal cambio = pago - total;
             txtCambio.Text = cambio.ToString("F2");
+        }
+
+        private void btnRegistrarVentas_Click(object sender, EventArgs e)
+        {
+            if (dgvProductos.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay productos en la venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(txtTotal.Text, out decimal total))
+            {
+                MessageBox.Show("Total inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // ✅ Si no hay cliente seleccionado, usar el "Cliente Genérico"
+            int idCliente = (cmbCliente.SelectedItem != null) ? ((Cliente)cmbCliente.SelectedItem).IdCliente : 1;
+
+            List<DetalleVenta> detallesVenta = new List<DetalleVenta>();
+            VentaNegocio ventaNegocio = new VentaNegocio();
+            int idUsuario = SesionUsuario.UsuarioActual?.IdUsuario ?? 0;
+
+            foreach (DataGridViewRow row in dgvProductos.Rows)
+            {
+                if (row.Cells["Producto"].Value != null)
+                {
+                    detallesVenta.Add(new DetalleVenta
+                    {
+                        IdProducto = ventaNegocio.ObtenerIdProducto(row.Cells["Producto"].Value.ToString()),
+                        NombreProducto = row.Cells["Producto"].Value.ToString(),
+                        Cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value),
+                        Subtotal = Convert.ToDecimal(row.Cells["Subtotal"].Value)
+                    });
+                }
+            }
+
+            ventaNegocio.ProcesarVenta(idCliente, idUsuario, total, detallesVenta); // ✅ Usar cliente genérico si es necesario
+
+            MessageBox.Show("Venta registrada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            dgvProductos.Rows.Clear();
+            txtTotal.Text = "0.00";
+            txtPago.Text = "";
+            txtCambio.Text = "0.00";
+        }
+
+        private void txtCambio_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

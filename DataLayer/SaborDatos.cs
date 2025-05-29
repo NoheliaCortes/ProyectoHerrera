@@ -51,7 +51,52 @@ namespace DataLayer
             return dt;
         }
 
+        public void AgregarSabor(int idLinea, string nombreSabor)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                
+                SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Sabores WHERE nombre_sabor = @Nombre AND id_linea = @IdLinea", con);
+                checkCmd.Parameters.AddWithValue("@Nombre", nombreSabor);
+                checkCmd.Parameters.AddWithValue("@IdLinea", idLinea);
+                int existe = Convert.ToInt32(checkCmd.ExecuteScalar());
 
+                if (existe == 0)
+                {
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Sabores (nombre_sabor, id_linea) VALUES (@Nombre, @IdLinea)", con);
+                    cmd.Parameters.AddWithValue("@Nombre", nombreSabor);
+                    cmd.Parameters.AddWithValue("@IdLinea", idLinea);
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    throw new Exception("El sabor ya existe en esta línea.");
+                }
+            }
+        }
+
+        public bool EliminarSabor(int idSabor)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                
+                SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Producto WHERE id_sabor = @IdSabor", con);
+                checkCmd.Parameters.AddWithValue("@IdSabor", idSabor);
+                int productosAsociados = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+                if (productosAsociados == 0)
+                {
+                    SqlCommand cmd = new SqlCommand("DELETE FROM Sabores WHERE id_sabor = @IdSabor", con);
+                    cmd.Parameters.AddWithValue("@IdSabor", idSabor);
+                    cmd.ExecuteNonQuery();
+                    return true; 
+                }
+                else
+                {
+                    return false; 
+                }
+            }
+        }
 
 
 

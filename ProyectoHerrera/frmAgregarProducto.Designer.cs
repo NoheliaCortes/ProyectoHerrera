@@ -128,6 +128,7 @@
             this.cmbPeso.Name = "cmbPeso";
             this.cmbPeso.Size = new System.Drawing.Size(121, 21);
             this.cmbPeso.TabIndex = 15;
+            this.cmbPeso.SelectedIndexChanged += new System.EventHandler(this.cmbPeso_SelectedIndexChanged);
             // 
             // cmbMedida
             // 
@@ -136,6 +137,7 @@
             this.cmbMedida.Name = "cmbMedida";
             this.cmbMedida.Size = new System.Drawing.Size(121, 21);
             this.cmbMedida.TabIndex = 14;
+            this.cmbMedida.SelectedIndexChanged += new System.EventHandler(this.cmbMedida_SelectedIndexChanged);
             // 
             // cmbSabor
             // 
@@ -144,6 +146,7 @@
             this.cmbSabor.Name = "cmbSabor";
             this.cmbSabor.Size = new System.Drawing.Size(121, 21);
             this.cmbSabor.TabIndex = 13;
+            this.cmbSabor.SelectedIndexChanged += new System.EventHandler(this.cmbSabor_SelectedIndexChanged_1);
             // 
             // cmbLinea
             // 
@@ -152,6 +155,7 @@
             this.cmbLinea.Name = "cmbLinea";
             this.cmbLinea.Size = new System.Drawing.Size(121, 21);
             this.cmbLinea.TabIndex = 12;
+            this.cmbLinea.SelectedIndexChanged += new System.EventHandler(this.cmbLinea_SelectedIndexChanged);
             // 
             // txtNombreProducto
             // 

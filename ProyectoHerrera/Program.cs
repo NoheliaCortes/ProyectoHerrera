@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,16 @@ namespace ProyectoHerrera
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmInicio());
         }
+
+        public static class SesionUsuario
+        {
+            public static Usuario UsuarioActual { get; set; }  // ✅ Usuario logueado accesible en toda la app
+        }
+
+
+
+
     }
 }

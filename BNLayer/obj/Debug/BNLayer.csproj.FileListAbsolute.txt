@@ -16,3 +16,13 @@ C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\obj\Debug\BN
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\obj\Debug\BNLayer.csproj.Up2Date
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\obj\Debug\BNLayer.dll
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\obj\Debug\BNLayer.pdb
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\System.Buffers.dll
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\System.Memory.dll
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\System.Buffers.xml
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\System.Memory.xml
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml

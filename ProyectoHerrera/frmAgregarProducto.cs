@@ -1,5 +1,6 @@
 ﻿using BNLayer;
 using DataLayer;
+using DataLayer.Modelos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,10 +34,10 @@ namespace ProyectoHerrera
         {
             LineaNegocio lineaNegocio = new LineaNegocio();
 
-            // Configurar el ComboBox para mostrar los nombres de las líneas
-            cmbLinea.DataSource = lineaNegocio.ObtenerLineas(); // Asigna la lista de líneas al ComboBox
-            cmbLinea.DisplayMember = "NombreLinea"; // Campo a mostrar en el ComboBox
-            cmbLinea.ValueMember = "IdLinea"; // Campo subyacente (id_linea)
+            
+            cmbLinea.DataSource = lineaNegocio.ObtenerLineas(); 
+            cmbLinea.DisplayMember = "NombreLinea"; 
+            cmbLinea.ValueMember = "IdLinea"; 
 
 
             SaborNegocio saborNegocio = new SaborNegocio();
@@ -65,8 +66,10 @@ namespace ProyectoHerrera
             
             cmbEnvase.DataSource = envaseNegocio.ObtenerEnvases(); 
             cmbEnvase.DisplayMember = "TipoEnvase"; 
-            cmbEnvase.ValueMember = "IdEnvase"; 
+            cmbEnvase.ValueMember = "IdEnvase";
 
+
+          
 
 
 
@@ -74,11 +77,16 @@ namespace ProyectoHerrera
 
         }
 
+
+       
+
+
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                // Validar los campos del formulario
+                
                 if (string.IsNullOrWhiteSpace(txtNombreProducto.Text) ||
                     string.IsNullOrWhiteSpace(txtPrecioProducto.Text) ||
                     string.IsNullOrWhiteSpace(txtCantidadMinima.Text) ||
@@ -88,7 +96,19 @@ namespace ProyectoHerrera
                     return;
                 }
 
-                // Crear un objeto Producto con los datos ingresados
+                ProductoNegocio productoNegocio = new ProductoNegocio();
+
+                int idSabor = Convert.ToInt32(cmbSabor.SelectedValue);
+                int idPeso = Convert.ToInt32(cmbPeso.SelectedValue);
+
+              
+                if (productoNegocio.ExisteProducto(idSabor, idPeso))
+                {
+                    MessageBox.Show("Ya existe un producto con este sabor y peso.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
                 Producto nuevoProducto = new Producto
                 {
                     NombreProducto = txtNombreProducto.Text,
@@ -104,19 +124,71 @@ namespace ProyectoHerrera
                    
                 };
 
-                // Guardar el producto usando la capa de negocio
-                ProductoNegocio productoNegocio = new ProductoNegocio();
+               
+                
                 productoNegocio.RegistrarProducto(nuevoProducto);
 
                 MessageBox.Show("Producto registrado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 ((frmInventario)Application.OpenForms["frmInventario"]).CargarProductosConStock();
-                this.Close(); // Cierra el formulario de registro
+                this.Close(); 
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocurrió un error al registrar el producto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cmbLinea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbLinea.SelectedItem != null)
+            {
+                int idLinea = ((Linea)cmbLinea.SelectedItem).IdLinea;
+
+
+                cmbSabor.Enabled = true;
+
+                SaborNegocio saborNegocio = new SaborNegocio();
+                cmbSabor.DataSource = saborNegocio.ObtenerSaboresPorLinea(idLinea);
+                cmbSabor.DisplayMember = "nombre_sabor";
+                cmbSabor.ValueMember = "id_sabor";
+            }
+            else
+            {
+                cmbSabor.Enabled = false;
+                cmbSabor.DataSource = null;
+            }
+        }
+
+        private void GenerarNombreProducto()
+        {
+            if (cmbSabor.SelectedItem != null && cmbPeso.SelectedItem != null && cmbMedida.SelectedItem != null)
+            {
+                string sabor = cmbSabor.SelectedItem is Sabor ? ((Sabor)cmbSabor.SelectedItem).NombreSabor : cmbSabor.Text; // ✅ Convertir correctamente
+                string peso = ((Peso)cmbPeso.SelectedItem).NombrePeso;
+                string unidadMedida = ((Medida)cmbMedida.SelectedItem).NombreMedida;
+
+                txtNombreProducto.Text = $"Sorbete {sabor} {peso} {unidadMedida}";
+            }
+            else
+            {
+                txtNombreProducto.Text = ""; 
+            }
+        }
+
+        private void cmbSabor_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            GenerarNombreProducto();
+        }
+
+        private void cmbMedida_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GenerarNombreProducto();
+        }
+
+        private void cmbPeso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GenerarNombreProducto();
         }
     }
 }

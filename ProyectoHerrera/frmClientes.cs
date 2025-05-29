@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,8 @@ namespace ProyectoHerrera
 {
     public partial class frmClientes : Form
     {
+
+        private int idClienteSeleccionado;
         public frmClientes()
         {
             InitializeComponent();
@@ -28,102 +31,152 @@ namespace ProyectoHerrera
             dgvClientes.DataSource = lista;
         }
 
+        public void RedondearPanel(Panel panel, int radio)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(new Rectangle(0, 0, radio, radio), 180, 90);
+            path.AddArc(new Rectangle(panel.Width - radio, 0, radio, radio), 270, 90);
+            path.AddArc(new Rectangle(panel.Width - radio, panel.Height - radio, radio, radio), 0, 90);
+            path.AddArc(new Rectangle(0, panel.Height - radio, radio, radio), 90, 90);
+            path.CloseFigure();
+            panel.Region = new Region(path);
+        }
+
+
 
         private void frmClientes_Load(object sender, EventArgs e)
         {
             CargarClientes();
             cbEstado.Items.AddRange(new string[] { "Activo", "Inactivo" });
             cbEstado.SelectedIndex = 0;
+            RedondearPanel(PanelClientes, 35);
 
         }
 
+        private bool ValidarFormulario()
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("El nombre no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNombre.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtApellido.Text))
+            {
+                MessageBox.Show("El apellido no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtApellido.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtTelefono.Text) || !txtTelefono.Text.All(char.IsDigit) || txtTelefono.Text.Length < 8)
+            {
+                MessageBox.Show("El teléfono debe contener solo números y al menos 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTelefono.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text) || txtDireccion.Text.Length < 5)
+            {
+                MessageBox.Show("La dirección debe tener al menos 5 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDireccion.Focus();
+                return false;
+            }
+
+            if (cbEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecciona un estado válido (Activo/Inactivo).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbEstado.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+
+
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            try
+            if (ValidarFormulario())
             {
-                Cliente cliente = new Cliente
+                try
                 {
-                    Nombre = txtNombre.Text,
-                    Apellido = txtApellido.Text,
-                    Telefono = txtTelefono.Text,
-                    Direccion = txtDireccion.Text,
-                    Estado = cbEstado.SelectedItem.ToString() == "Activo"
-                };
+                    Cliente cliente = new Cliente
+                    {
+                        Nombre = txtNombre.Text.Trim(),
+                        Apellido = txtApellido.Text.Trim(),
+                        Telefono = txtTelefono.Text.Trim(),
+                        Direccion = txtDireccion.Text.Trim(),
+                        Estado = cbEstado.SelectedItem.ToString() == "Activo"
+                    };
 
-                bool exito = clienteNegocio.InsertarCliente(cliente);
-                if (exito)
-                {
-                    MessageBox.Show("Cliente registrado con éxito.");
-                    CargarClientes();
-                    LimpiarFormulario();
+                    bool exito = clienteNegocio.InsertarCliente(cliente);
+                    if (exito)
+                    {
+                        MessageBox.Show("Cliente registrado con éxito.");
+                        CargarClientes();
+                        LimpiarFormulario();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al registrar el cliente.");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Error al registrar el cliente.");
+                    MessageBox.Show(ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            try
+            if (idClienteSeleccionado > 0 && ValidarFormulario())
             {
-                if (dgvClientes.CurrentRow == null)
+                try
                 {
-                    MessageBox.Show("Seleccioná un cliente para editar.");
-                    return;
+                    Cliente cliente = new Cliente
+                    {
+                        IdCliente = idClienteSeleccionado,
+                        Nombre = txtNombre.Text.Trim(),
+                        Apellido = txtApellido.Text.Trim(),
+                        Telefono = txtTelefono.Text.Trim(),
+                        Direccion = txtDireccion.Text.Trim(),
+                        Estado = cbEstado.SelectedItem.ToString() == "Activo"
+                    };
+
+                    bool exito = clienteNegocio.ActualizarCliente(cliente);
+                    if (exito)
+                    {
+                        MessageBox.Show("Cliente actualizado con éxito.");
+                        CargarClientes();
+                        LimpiarFormulario();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar el cliente.");
+                    }
                 }
-
-                int id = Convert.ToInt32(dgvClientes.CurrentRow.Cells["id_cliente"].Value);
-
-                Cliente cliente = new Cliente
+                catch (Exception ex)
                 {
-                    IdCliente = id,
-                    Nombre = txtNombre.Text,
-                    Apellido = txtApellido.Text,
-                    Telefono = txtTelefono.Text,
-                    Direccion = txtDireccion.Text,
-                    Estado = cbEstado.SelectedItem.ToString() == "Activo"
-                };
-
-                bool exito = clienteNegocio.ActualizarCliente(cliente);
-                if (exito)
-                {
-                    MessageBox.Show("Cliente actualizado con éxito.");
-                    CargarClientes();
-                    LimpiarFormulario();
-                }
-                else
-                {
-                    MessageBox.Show("Error al actualizar el cliente.");
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Selecciona un cliente antes de editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (idClienteSeleccionado > 0)
             {
-                if (dgvClientes.CurrentRow == null)
-                {
-                    MessageBox.Show("Seleccioná un cliente para eliminar.");
-                    return;
-                }
-
-                int id = Convert.ToInt32(dgvClientes.CurrentRow.Cells["id_cliente"].Value);
-
                 DialogResult result = MessageBox.Show("¿Estás segura de eliminar este cliente?", "Confirmar", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    bool exito = clienteNegocio.EliminarCliente(id);
+                    bool exito = clienteNegocio.EliminarCliente(idClienteSeleccionado);
                     if (exito)
                     {
                         MessageBox.Show("Cliente eliminado.");
@@ -136,9 +189,9 @@ namespace ProyectoHerrera
                     }
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Selecciona un cliente antes de eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -160,25 +213,51 @@ namespace ProyectoHerrera
             LimpiarFormulario();
         }
 
+        private void ConfigurarDataGridView()
+        {
+            dgvClientes.AutoGenerateColumns = false;
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect; 
+            dgvClientes.Columns.Clear();
+
+            
+            DataGridViewTextBoxColumn colIdCliente = new DataGridViewTextBoxColumn();
+            colIdCliente.DataPropertyName = "IdCliente"; 
+            colIdCliente.HeaderText = "ID Cliente";
+            colIdCliente.Visible = false;
+            dgvClientes.Columns.Add(colIdCliente);
+
+            
+            DataGridViewTextBoxColumn colNombre = new DataGridViewTextBoxColumn();
+            colNombre.DataPropertyName = "Nombre";
+            colNombre.HeaderText = "Nombre";
+            dgvClientes.Columns.Add(colNombre);
+        }
+
        
 
-        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0) 
             {
-                DataGridViewRow fila = dgvClientes.Rows[e.RowIndex];
+                Cliente clienteSeleccionado = (Cliente)dgvClientes.Rows[e.RowIndex].DataBoundItem; 
+                idClienteSeleccionado = clienteSeleccionado.IdCliente;
 
-                txtNombre.Text = fila.Cells["nombre"].Value?.ToString() ?? "";
-                txtApellido.Text = fila.Cells["apellido"].Value?.ToString() ?? "";
-                txtTelefono.Text = fila.Cells["telefono"].Value?.ToString() ?? "";
-                txtDireccion.Text = fila.Cells["direccion"].Value?.ToString() ?? "";
+                txtNombre.Text = clienteSeleccionado.Nombre;
+                txtApellido.Text = clienteSeleccionado.Apellido;
+                txtTelefono.Text = clienteSeleccionado.Telefono;
+                txtDireccion.Text = clienteSeleccionado.Direccion;
+                cbEstado.SelectedItem = clienteSeleccionado.Estado ? "Activo" : "Inactivo";
 
-                bool estado = false;
-                if (fila.Cells["estado"].Value != null)
-                    estado = Convert.ToBoolean(fila.Cells["estado"].Value);
 
-                cbEstado.SelectedItem = estado ? "Activo" : "Inactivo";
+
+
+
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -21,7 +21,7 @@ namespace BNLayer
             }
             catch (Exception ex)
             {
-                // Podés loggear el error aquí si querés
+               
                 throw new Exception("Error en la capa de negocio insertando cliente: " + ex.Message);
             }
         }

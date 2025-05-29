@@ -15,9 +15,26 @@ namespace BNLayer
 
         public List<Linea> ObtenerLineas()
         {
-            // Aquí podrías incluir validaciones o lógica adicional antes de llamar a la capa de datos
+            
             return lineaDatos.ObtenerLineas();
         }
+
+        public void AgregarLinea(string nombreLinea)
+        {
+            lineaDatos.AgregarLinea(nombreLinea); 
+        }
+
+       
+
+        public bool EliminarLinea(int idLinea)
+        {
+            return lineaDatos.EliminarLinea(idLinea); 
+        }
+
+
+
+
+
     }
 
 }

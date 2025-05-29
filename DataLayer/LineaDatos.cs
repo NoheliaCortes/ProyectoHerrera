@@ -33,6 +33,53 @@ namespace DataLayer
             }
             return lineas;
         }
+
+        public void AgregarLinea(string nombreLinea)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand("INSERT INTO Lineas (nombre) VALUES (@Nombre)", con);
+                cmd.Parameters.AddWithValue("@Nombre", nombreLinea);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void EditarLinea(int idLinea, string nuevoNombre)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE Linea SET nombre = @Nombre WHERE id_linea = @IdLinea", con);
+                cmd.Parameters.AddWithValue("@Nombre", nuevoNombre);
+                cmd.Parameters.AddWithValue("@IdLinea", idLinea);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public bool EliminarLinea(int idLinea)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+              
+                SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Producto WHERE id_linea = @IdLinea", con);
+                checkCmd.Parameters.AddWithValue("@IdLinea", idLinea);
+                int productosAsociados = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+                if (productosAsociados == 0)
+                {
+                    SqlCommand cmd = new SqlCommand("DELETE FROM Lineas WHERE id_linea = @IdLinea", con);
+                    cmd.Parameters.AddWithValue("@IdLinea", idLinea);
+                    cmd.ExecuteNonQuery();
+                    return true; 
+                }
+                else
+                {
+                    return false; 
+                }
+            }
+        }
+
+
+
     }
 
 }

@@ -69,12 +69,30 @@ namespace DataLayer
         {
             using (SqlConnection con = conexion.ObtenerConexion())
             {
-                SqlCommand cmd = new SqlCommand("UPDATE StockActual SET cantidad = cantidad + @Cantidad WHERE id_producto = @IdProducto", con);
-                cmd.Parameters.AddWithValue("@Cantidad", cantidad);
-                cmd.Parameters.AddWithValue("@IdProducto", idProducto);
-                cmd.ExecuteNonQuery();
+                
+                SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM StockActual WHERE id_producto = @IdProducto", con);
+                checkCmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                int existe = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+                if (existe > 0)
+                {
+                    
+                    SqlCommand updateCmd = new SqlCommand("UPDATE StockActual SET cantidad = cantidad + @Cantidad WHERE id_producto = @IdProducto", con);
+                    updateCmd.Parameters.AddWithValue("@Cantidad", cantidad);
+                    updateCmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    updateCmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    
+                    SqlCommand insertCmd = new SqlCommand("INSERT INTO StockActual (id_producto, cantidad) VALUES (@IdProducto, @Cantidad)", con);
+                    insertCmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    insertCmd.Parameters.AddWithValue("@Cantidad", cantidad);
+                    insertCmd.ExecuteNonQuery();
+                }
             }
         }
+
 
         public int ObtenerStockActual(int idProducto)
         {
@@ -161,10 +179,31 @@ namespace DataLayer
         {
             using (SqlConnection con = conexion.ObtenerConexion())
             {
-                SqlCommand cmd = new SqlCommand("DELETE FROM Producto WHERE id_producto = @IdProducto", con);
-                cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+           
+                SqlTransaction transaccion = con.BeginTransaction();
 
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    // ✅ Primero eliminar el stock del producto
+                    SqlCommand cmdEliminarStock = new SqlCommand(@"
+                DELETE FROM StockActual WHERE id_producto = @IdProducto", con, transaccion);
+
+                    cmdEliminarStock.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cmdEliminarStock.ExecuteNonQuery();
+
+                    // ✅ Luego eliminar el producto de la tabla `Producto`
+                    SqlCommand cmdEliminarProducto = new SqlCommand(@"
+                DELETE FROM Producto WHERE id_producto = @IdProducto", con, transaccion);
+
+                    cmdEliminarProducto.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cmdEliminarProducto.ExecuteNonQuery();
+
+                    transaccion.Commit();
+                }
+                catch
+                {
+                    transaccion.Rollback();
+                }
             }
         }
 
@@ -202,6 +241,101 @@ namespace DataLayer
                 da.Fill(dt);
             }
             return dt;
+        }
+
+        public bool ExisteProducto(int idSabor, int idPeso)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand(@"
+            SELECT COUNT(*) FROM Producto
+            WHERE id_sabor = @idSabor AND id_peso = @idPeso", con);
+
+                cmd.Parameters.AddWithValue("@idSabor", idSabor);
+                cmd.Parameters.AddWithValue("@idPeso", idPeso);
+
+               
+                int count = Convert.ToInt32(cmd.ExecuteScalar()); 
+                return count > 0; 
+            }
+        }
+
+        public List<ProductoConStock> FiltrarProductos(int idLinea, int idSabor, int idPeso, int idMedida)
+        {
+            List<ProductoConStock> productos = new List<ProductoConStock>();
+
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                string query = @"SELECT p.id_producto, p.nombre_producto, 
+                                p.costo_produccion, p.precio_producto, 
+                                s.cantidad
+                         FROM Producto p
+                         LEFT JOIN StockActual s ON p.id_producto = s.id_producto
+                         WHERE 1=1"; 
+
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                if (idLinea > 0)
+                {
+                    query += " AND p.id_linea = @idLinea";
+                    parametros.Add(new SqlParameter("@idLinea", idLinea));
+                }
+                if (idSabor > 0)
+                {
+                    query += " AND p.id_sabor = @idSabor";
+                    parametros.Add(new SqlParameter("@idSabor", idSabor));
+                }
+                if (idPeso > 0)
+                {
+                    query += " AND p.id_peso = @idPeso";
+                    parametros.Add(new SqlParameter("@idPeso", idPeso));
+                }
+                if (idMedida > 0)
+                {
+                    query += " AND p.id_medida = @idMedida";
+                    parametros.Add(new SqlParameter("@idMedida", idMedida));
+                }
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddRange(parametros.ToArray());
+
+               
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ProductoConStock producto = new ProductoConStock
+                    {
+                        IdProducto = Convert.ToInt32(reader["id_producto"]),
+                        NombreProducto = reader["nombre_producto"].ToString(),
+                        CostoProduccion = Convert.ToDecimal(reader["costo_produccion"]),
+                        PrecioProducto = Convert.ToDecimal(reader["precio_producto"]),
+                        Cantidad = reader["cantidad"] != DBNull.Value
+                                               ? Convert.ToInt32(reader["cantidad"])
+                                               : 0
+                    };
+                    productos.Add(producto);
+                }
+            }
+
+            return productos; 
+        }
+
+        public bool VerificarStock(int idProducto, int cantidadVendida)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand(@"
+            SELECT cantidad FROM StockActual WHERE id_producto = @idProducto", con);
+
+                cmd.Parameters.AddWithValue("@idProducto", idProducto);
+             
+
+                object result = cmd.ExecuteScalar();
+                int stockDisponible = result != DBNull.Value ? Convert.ToInt32(result) : 0;
+
+                return stockDisponible >= cantidadVendida; 
+            }
         }
 
 

@@ -71,7 +71,26 @@ namespace BNLayer
             return productoDatos.BuscarProductoConDescuento(idLinea, idSabor, idMedida, idPeso);
         }
 
+        public bool ExisteProducto(int idSabor, int idPeso)
+        {
+            ProductoDatos productoDatos = new ProductoDatos(); 
+            return productoDatos.ExisteProducto(idSabor, idPeso); 
+        }
 
+        public List<ProductoConStock> FiltrarProductos(int idLinea, int idSabor, int idPeso, int idMedida)
+        {
+            ProductoDatos productoDatos = new ProductoDatos(); 
+            return productoDatos.FiltrarProductos(idLinea, idSabor, idPeso, idMedida); 
+        }
+
+        public bool VerificarStock(int idproducto, int cantidadvendida)
+        {
+            ProductoDatos productoDatos = new ProductoDatos();
+            return productoDatos.VerificarStock(idproducto, cantidadvendida);
+
+
+
+        }
 
     }
 }

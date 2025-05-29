@@ -16,5 +16,11 @@ namespace ProyectoHerrera
         {
             InitializeComponent();
         }
+
+        private void btnRegistrarUsuarios_Click(object sender, EventArgs e)
+        {
+            frmRegistrarUsuario frm = new frmRegistrarUsuario();
+            frm.ShowDialog();
+        }
     }
 }

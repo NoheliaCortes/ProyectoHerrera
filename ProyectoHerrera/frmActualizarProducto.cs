@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace ProyectoHerrera
             CargarDatosProducto();
             }
 
-        // Método para obtener los datos del producto y mostrarlos en los controles
+      
         private void CargarDatosProducto()
         {
             try
@@ -42,7 +43,7 @@ namespace ProyectoHerrera
                     txtDescuentoProducto.Text = producto.DescuentoProducto.ToString();
                     txtCantidadMinimaDescuento.Text = producto.CantidadMinimaDescuento.ToString();
 
-                    // Seleccionar los valores correctos en los ComboBox
+                    
                     cmbLinea.SelectedValue = producto.IdLinea;
                     cmbSabor.SelectedValue = producto.IdSabor;
                     cmbMedida.SelectedValue = producto.IdMedida;
@@ -90,10 +91,10 @@ namespace ProyectoHerrera
 
                 MessageBox.Show("Producto actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Actualizar `dgvInventario` en `frmInventario`
+                
                 ((frmInventario)Application.OpenForms["frmInventario"]).CargarProductosConStock();
 
-                this.Close(); // Cierra el formulario después de actualizar
+                this.Close(); 
             }
             catch (Exception ex)
             {
@@ -110,6 +111,20 @@ namespace ProyectoHerrera
         {
 
         }
+
+        public void RedondearPanel(Panel panel, int radio)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(new Rectangle(0, 0, radio, radio), 180, 90);
+            path.AddArc(new Rectangle(panel.Width - radio, 0, radio, radio), 270, 90);
+            path.AddArc(new Rectangle(panel.Width - radio, panel.Height - radio, radio, radio), 0, 90);
+            path.AddArc(new Rectangle(0, panel.Height - radio, radio, radio), 90, 90);
+            path.CloseFigure();
+            panel.Region = new Region(path);
+        }
+
+
 
         private void frmActualizarProducto_Load(object sender, EventArgs e)
         {
@@ -139,11 +154,17 @@ namespace ProyectoHerrera
             cmbEnvase.DisplayMember = "TipoEnvase";
             cmbEnvase.ValueMember = "IdEnvase";
 
-            // Llamar al método para cargar los datos del producto
+            
             CargarDatosProducto();
+            RedondearPanel(PanelAcualizarproducto, 35);
         
 
     }
-}
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
     
 }

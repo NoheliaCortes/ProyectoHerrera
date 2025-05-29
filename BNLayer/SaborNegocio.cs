@@ -24,5 +24,16 @@ namespace BNLayer
             return saborDatos.ObtenerSaboresPorLinea(idLinea);
         }
 
+        public void AgregarSabor(int idLinea, string nombreSabor)
+        {
+            saborDatos.AgregarSabor(idLinea, nombreSabor); 
+        }
+
+        public bool EliminarSabor(int idSabor)
+        {
+            return saborDatos.EliminarSabor(idSabor); 
+        }
+
+
     }
 }

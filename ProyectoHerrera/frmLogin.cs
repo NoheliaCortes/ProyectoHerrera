@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace ProyectoHerrera
@@ -73,7 +75,44 @@ namespace ProyectoHerrera
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            GraphicsPath hex = CrearHexagonoRedondeado(LoginPanel.ClientRectangle, 10); // ajustá el 'radio'
+            LoginPanel.Region = new Region(hex);
 
         }
+
+        private GraphicsPath CrearHexagonoRedondeado(Rectangle bounds, int radio)
+        {
+            PointF[] puntos = new PointF[6];
+
+            float ancho = bounds.Width;
+            float alto = bounds.Height;
+            float mitadAncho = ancho / 2;
+            float cuartoAlto = alto / 4;
+
+            // Coordenadas para los 6 vértices del hexágono
+            puntos[0] = new PointF(mitadAncho, 0);
+            puntos[1] = new PointF(ancho, cuartoAlto);
+            puntos[2] = new PointF(ancho, 3 * cuartoAlto);
+            puntos[3] = new PointF(mitadAncho, alto);
+            puntos[4] = new PointF(0, 3 * cuartoAlto);
+            puntos[5] = new PointF(0, cuartoAlto);
+
+            GraphicsPath path = new GraphicsPath();
+
+            for (int i = 0; i < 6; i++)
+            {
+                PointF actual = puntos[i];
+                PointF siguiente = puntos[(i + 1) % 6];
+
+                // Línea recta con curva en el vértice
+                path.AddLine(actual, siguiente);
+            }
+
+            path.CloseFigure();
+            return path;
+        }
+
+
+
     }
 }
