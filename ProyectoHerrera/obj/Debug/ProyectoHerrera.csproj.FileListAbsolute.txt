@@ -61,6 +61,32 @@ C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.exe
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.pdb
+<<<<<<< HEAD
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\ProyectoHerrera.exe.config
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\ProyectoHerrera.pdb
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\Proyecto.925CF771.Up2Date
+=======
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\bin\Debug\ProyectoHerrera.exe.config
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\bin\Debug\ProyectoHerrera.exe
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\bin\Debug\ProyectoHerrera.pdb
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\bin\Debug\BNLayer.dll
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\bin\Debug\DataLayer.dll
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\bin\Debug\BNLayer.pdb
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\bin\Debug\DataLayer.pdb
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.csproj.AssemblyReference.cache
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmInventario.resources
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmActualizarProducto.resources
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmClientes.resources
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmGestionarStock.resources
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmInicio.resources
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmLogin.resources
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmProveedor.resources
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmVenta.resources
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmRegistrarProducto.resources
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.Properties.Resources.resources
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.csproj.GenerateResource.cache
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.csproj.CoreCompileInputs.cache
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\Proyecto.925CF771.Up2Date
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.exe
+C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.pdb
+>>>>>>> 5545d294fbdadc97dfa2c1bf273003cd4a49b05d
