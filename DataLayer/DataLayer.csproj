@@ -75,6 +75,7 @@
     <Compile Include="Modelos\Sabor.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Modelos\Venta.cs" />
+    <Compile Include="Modelos\VentaInfo.cs" />
     <Compile Include="PesoDatos.cs" />
     <Compile Include="ProductoDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

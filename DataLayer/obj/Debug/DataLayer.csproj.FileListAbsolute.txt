@@ -6,10 +6,6 @@ C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\DataLay
 C:\Cursos\3 semestre\integrador\SistemaSorbeteriaHerrera\ProyectoHerrera\DataLayer\obj\Debug\DataLayer.pdb
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\DataLayer.dll
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\DataLayer.pdb
-C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
-C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
-C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\obj\Debug\DataLayer.dll
-C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\obj\Debug\DataLayer.pdb
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\BCrypt.Net-Next.dll
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\System.Buffers.dll
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\System.Memory.dll
@@ -20,4 +16,8 @@ C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\System.Memory.xml
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
 C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\obj\Debug\DataLayer.csproj.Up2Date
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\obj\Debug\DataLayer.dll
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\obj\Debug\DataLayer.pdb

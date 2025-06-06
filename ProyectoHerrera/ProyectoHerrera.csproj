@@ -104,6 +104,12 @@
     <Compile Include="frmClientes.Designer.cs">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDetalleVenta.Designer.cs">
+      <DependentUpon>frmDetalleVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGestionarSabores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,12 @@
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuVentas.Designer.cs">
+      <DependentUpon>frmMenuVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProveedor.cs">
       <SubType>Form</SubType>
@@ -190,6 +202,9 @@
     <EmbeddedResource Include="frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDetalleVenta.resx">
+      <DependentUpon>frmDetalleVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGestionarSabores.resx">
       <DependentUpon>frmGestionarSabores.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuVentas.resx">
+      <DependentUpon>frmMenuVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProveedor.resx">
       <DependentUpon>frmProveedor.cs</DependentUpon>
@@ -307,6 +325,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iniciarsesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nuevaventa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\historial-de-transacciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Detalles.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

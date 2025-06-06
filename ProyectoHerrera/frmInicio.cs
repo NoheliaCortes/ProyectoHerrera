@@ -40,7 +40,7 @@ namespace ProyectoHerrera
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            frmVenta nuevoFormulario = new frmVenta(); 
+            frmMenuVentas nuevoFormulario = new frmMenuVentas(); 
             nuevoFormulario.Show(); 
              
         }

@@ -83,9 +83,69 @@ namespace DataLayer
         }
 
 
+        public DataTable ObtenerHistorialVentas()
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                string query = "SELECT v.id_venta AS idVenta, v.fecha AS Fecha,  v.total AS Total, c.nombre + ' ' + c.apellido AS Cliente, u.nombre_usuario + ' ' + u.apellido_usuario AS Usuario FROM Venta v LEFT JOIN Clientes c ON v.id_cliente = c.id_cliente LEFT JOIN Usuarios u ON v.id_usuario = u.id_usuario ORDER BY v.fecha DESC";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
 
-
-
+       public VentaInfo ObtenerVentaPorId(int idVenta)
+{
+    VentaInfo venta = null;
+    using (SqlConnection con = conexion.ObtenerConexion())
+    {
+       
+        using (SqlCommand cmd = new SqlCommand(@"SELECT v.fecha, v.total, u.nombre_usuario, c.nombre
+                                                 FROM Venta v
+                                                 INNER JOIN Usuarios u ON v.id_usuario = u.id_usuario
+                                                 INNER JOIN Clientes c ON v.id_cliente = c.id_cliente
+                                                 WHERE v.id_venta = @IdVenta", con))
+        {
+            cmd.Parameters.AddWithValue("@IdVenta", idVenta);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    venta = new VentaInfo
+                    {
+                        FechaVenta = Convert.ToDateTime(reader["fecha"]),
+                        Total = Convert.ToDecimal(reader["total"]),
+                        Usuario = reader["nombre_usuario"].ToString(),
+                        Cliente = reader["nombre"].ToString()
+                    };
+                }
+            }
+        }
     }
+    return venta;
+}
+
+        public DataTable ObtenerDetalleVenta(int idVenta)
+            {
+                using (SqlConnection con = conexion.ObtenerConexion())
+                {
+                    string query = @"
+            SELECT p.nombre_producto, dv.cantidad, dv.subtotal
+            FROM Detalle_Venta dv
+            INNER JOIN Producto p ON dv.id_producto = p.id_producto
+            WHERE dv.id_venta = @idVenta";
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@idVenta", idVenta);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
+
+        }
 
 }

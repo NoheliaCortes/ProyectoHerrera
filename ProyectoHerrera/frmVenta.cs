@@ -47,6 +47,7 @@ namespace ProyectoHerrera
         private void frmVenta_Load(object sender, EventArgs e)
         {
 
+
            
             txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txtHora.Text = DateTime.Now.ToString("HH:mm:ss");
@@ -179,11 +180,15 @@ namespace ProyectoHerrera
                     return; 
                 }
 
-                
-                decimal descuento = cantidad >= cantidadMinimaDescuento ? cantidad * descuentoUnitario : 0m;
+
+                int idCliente = (cmbCliente.SelectedItem != null) ? ((Cliente)cmbCliente.SelectedItem).IdCliente : 1;
+
+                // Aplicar descuento según el tipo de cliente
+                bool aplicarDescuento = (idCliente != 1) || (cantidad >= cantidadMinimaDescuento); // Si es cliente registrado, siempre aplica. Si es genérico, debe comprar 25+ unidades.
+                decimal descuento = aplicarDescuento ? cantidad * descuentoUnitario : 0m;
                 decimal subtotal = (cantidad * precio) - descuento;
 
-                
+
                 dgvProductos.Rows.Add(nombreProducto, cantidad, precio, descuento, subtotal);
                 CalcularTotal();
             }

@@ -2,6 +2,7 @@
 using DataLayer.Modelos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -38,8 +39,20 @@ namespace BNLayer
             return ventaDatos.ObtenerIdProducto(nombreProducto); 
         }
 
+        public DataTable ObtenerHistorialVentas()
+        {
+            return ventaDatos.ObtenerHistorialVentas(); 
+        }
 
+        public DataTable ObtenerDetalleVenta(int idVenta)
+        {
+            return ventaDatos.ObtenerDetalleVenta(idVenta); 
+        }
 
+        public VentaInfo ObtenerVentaPorId(int idVenta)
+        {
+            return ventaDatos.ObtenerVentaPorId(idVenta); 
+        }
 
 
     }
