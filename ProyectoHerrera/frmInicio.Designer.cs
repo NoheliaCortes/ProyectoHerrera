@@ -183,7 +183,7 @@
             this.btnReportes.TabIndex = 7;
             this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnReportes.UseVisualStyleBackColor = false;
-            this.btnReportes.Click += new System.EventHandler(this.button1_Click);
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnClientes
             // 
@@ -263,6 +263,7 @@
             this.btnCompras.Size = new System.Drawing.Size(223, 154);
             this.btnCompras.TabIndex = 5;
             this.btnCompras.UseVisualStyleBackColor = false;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
             // btnInsumos
             // 

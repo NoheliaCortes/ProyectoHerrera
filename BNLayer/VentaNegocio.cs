@@ -44,6 +44,12 @@ namespace BNLayer
             return ventaDatos.ObtenerHistorialVentas(); 
         }
 
+        public DataTable ObtenerVentasPorFiltro(DateTime? fechaInicio, DateTime? fechaFin, int? idCliente, int? idUsuario)
+        {
+            return ventaDatos.ObtenerVentasPorFiltro(fechaInicio, fechaFin, idCliente, idUsuario); // ✅ Llamada a datos
+        }
+
+
         public DataTable ObtenerDetalleVenta(int idVenta)
         {
             return ventaDatos.ObtenerDetalleVenta(idVenta); 

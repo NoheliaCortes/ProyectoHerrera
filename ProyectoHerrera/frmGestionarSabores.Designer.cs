@@ -38,7 +38,7 @@
             // lblLineaSeleccionada
             // 
             this.lblLineaSeleccionada.AutoSize = true;
-            this.lblLineaSeleccionada.Location = new System.Drawing.Point(44, 55);
+            this.lblLineaSeleccionada.Location = new System.Drawing.Point(54, 60);
             this.lblLineaSeleccionada.Name = "lblLineaSeleccionada";
             this.lblLineaSeleccionada.Size = new System.Drawing.Size(36, 13);
             this.lblLineaSeleccionada.TabIndex = 0;
@@ -47,7 +47,7 @@
             // dgvSabores
             // 
             this.dgvSabores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSabores.Location = new System.Drawing.Point(47, 87);
+            this.dgvSabores.Location = new System.Drawing.Point(70, 98);
             this.dgvSabores.Name = "dgvSabores";
             this.dgvSabores.Size = new System.Drawing.Size(475, 247);
             this.dgvSabores.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(574, 108);
+            this.btnAgregar.Location = new System.Drawing.Point(568, 179);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 2;
@@ -65,7 +65,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(574, 156);
+            this.btnEliminar.Location = new System.Drawing.Point(568, 227);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 3;
@@ -77,7 +77,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 428);
+            this.BackColor = System.Drawing.Color.MistyRose;
+            this.ClientSize = new System.Drawing.Size(676, 428);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvSabores);

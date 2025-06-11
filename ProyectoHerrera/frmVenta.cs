@@ -12,6 +12,7 @@ using BNLayer;
 using DataLayer.Modelos;
 using System.Drawing.Drawing2D;
 using static ProyectoHerrera.Program;
+using DataLayer;
 
 namespace ProyectoHerrera
 {
@@ -19,6 +20,11 @@ namespace ProyectoHerrera
     {
 
         public Usuario UsuarioLogueado { get; set; }
+
+        
+
+
+
         public frmVenta()
         {
             InitializeComponent();
@@ -47,8 +53,8 @@ namespace ProyectoHerrera
         private void frmVenta_Load(object sender, EventArgs e)
         {
 
-
            
+
             txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txtHora.Text = DateTime.Now.ToString("HH:mm:ss");
 
@@ -237,10 +243,17 @@ namespace ProyectoHerrera
             VentaNegocio ventaNegocio = new VentaNegocio();
             int idUsuario = SesionUsuario.UsuarioActual?.IdUsuario ?? 0;
 
+            ProductoNegocio productoNegocio = new ProductoNegocio();
+
             foreach (DataGridViewRow row in dgvProductos.Rows)
             {
                 if (row.Cells["Producto"].Value != null)
                 {
+                    int idProducto = ventaNegocio.ObtenerIdProducto(row.Cells["Producto"].Value.ToString()); // ✅ Se define aquí
+                    int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value); // ✅ Se define aquí
+                    int stockAnterior = productoNegocio.ObtenerStockActual(idProducto);
+
+
                     detallesVenta.Add(new DetalleVenta
                     {
                         IdProducto = ventaNegocio.ObtenerIdProducto(row.Cells["Producto"].Value.ToString()),
@@ -248,8 +261,32 @@ namespace ProyectoHerrera
                         Cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value),
                         Subtotal = Convert.ToDecimal(row.Cells["Subtotal"].Value)
                     });
+
+                    MovimientoStock movimiento = new MovimientoStock
+                    {
+
+
+                        IdProducto = idProducto,
+                        IdTipoMovimiento = 2, // ✅ "Venta"
+                        IdUsuario = idUsuario,
+                        CantidadMovida = cantidad,
+                        StockAnterior = stockAnterior,
+                        StockPosterior = stockAnterior - cantidad,
+                        MotivoMovimiento = null // ✅ Las ventas no requieren motivo
+                    };
+
+
+                    MovimientoStockNegocio movimientoNegocio = new MovimientoStockNegocio();
+                    movimientoNegocio.RegistrarMovimientoStock(movimiento);
+
+
+
                 }
             }
+
+          
+        
+
 
             ventaNegocio.ProcesarVenta(idCliente, idUsuario, total, detallesVenta); // ✅ Usar cliente genérico si es necesario
 

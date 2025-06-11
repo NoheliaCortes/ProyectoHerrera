@@ -46,6 +46,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.MistyRose;
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.txtNombreLinea);
             this.panel1.Controls.Add(this.label1);

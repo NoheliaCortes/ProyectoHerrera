@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BNLayer;
+using DataLayer.Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,8 @@ namespace ProyectoHerrera
 {
     public partial class frmUsuarios : Form
     {
+
+        private UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
         public frmUsuarios()
         {
             InitializeComponent();
@@ -21,6 +25,21 @@ namespace ProyectoHerrera
         {
             frmRegistrarUsuario frm = new frmRegistrarUsuario();
             frm.ShowDialog();
+        }
+
+        private void frmUsuarios_Load(object sender, EventArgs e)
+        {
+            CargarUsuarios();
+        }
+
+
+        public void CargarUsuarios()
+        {
+            List<Usuario> lista = usuarioNegocio.ObtenerUsuarios();
+            dgvUsuarios.DataSource = lista;
+
+
+
         }
     }
 }

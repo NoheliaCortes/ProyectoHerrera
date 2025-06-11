@@ -27,3 +27,7 @@ C:\Cursos\3 semestre\integrador\Sistema\DataLayer\obj\Debug\DataLayer.csproj.Ass
 C:\Cursos\3 semestre\integrador\Sistema\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
 C:\Cursos\3 semestre\integrador\Sistema\DataLayer\obj\Debug\DataLayer.dll
 C:\Cursos\3 semestre\integrador\Sistema\DataLayer\obj\Debug\DataLayer.pdb
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\itextsharp.dll
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\DataLayer\bin\Debug\itextsharp.xml

@@ -183,6 +183,16 @@ namespace ProyectoHerrera.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MovimientoStock {
+            get {
+                object obj = ResourceManager.GetObject("MovimientoStock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Nuevaventa {
             get {
                 object obj = ResourceManager.GetObject("Nuevaventa", resourceCulture);

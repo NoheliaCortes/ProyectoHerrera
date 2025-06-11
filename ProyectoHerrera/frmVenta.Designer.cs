@@ -80,10 +80,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe Print", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(569, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 22);
+            this.label1.Size = new System.Drawing.Size(168, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Registrar Venta";
             // 
@@ -251,7 +251,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Moccasin;
+            this.groupBox1.BackColor = System.Drawing.Color.MistyRose;
             this.groupBox1.Controls.Add(this.cmbPeso);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtCantidad);
@@ -289,7 +289,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Moccasin;
+            this.groupBox2.BackColor = System.Drawing.Color.MistyRose;
             this.groupBox2.Controls.Add(this.txtFecha);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
@@ -307,7 +307,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.Moccasin;
+            this.groupBox3.BackColor = System.Drawing.Color.MistyRose;
             this.groupBox3.Controls.Add(this.cmbCliente);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Location = new System.Drawing.Point(98, 201);
@@ -443,7 +443,7 @@
             // 
             // PanelVentas
             // 
-            this.PanelVentas.BackColor = System.Drawing.Color.Moccasin;
+            this.PanelVentas.BackColor = System.Drawing.Color.MistyRose;
             this.PanelVentas.Controls.Add(this.label1);
             this.PanelVentas.Location = new System.Drawing.Point(59, 83);
             this.PanelVentas.Name = "PanelVentas";

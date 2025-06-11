@@ -90,3 +90,15 @@ C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\Proyecto.925CF
 C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.exe
 C:\Cursos\3 semestre\integrador\Sistema\ProyectoHerrera\obj\Debug\ProyectoHerrera.pdb
 >>>>>>> 5545d294fbdadc97dfa2c1bf273003cd4a49b05d
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmEliminarStock.resources
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\itextsharp.dll
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\bin\Debug\itextsharp.xml
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmMenuReportes.resources
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmAgregarInsumo.resources
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmInsumos.resources
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmGestionarStockInsumo.resources
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmMovimientosStock.resources
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmCompra.resources
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\ProyectoHerrera\obj\Debug\ProyectoHerrera.frmHistorialCompras.resources

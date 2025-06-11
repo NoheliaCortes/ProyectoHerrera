@@ -1,4 +1,5 @@
 ﻿using BNLayer;
+using DataLayer.Modelos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,13 +9,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static ProyectoHerrera.Program;
 
 namespace ProyectoHerrera
 {
     public partial class frmGestionarStock : Form
     {
+        public Usuario UsuarioLogueado { get; set; } 
+
+
+
+
         private int idProducto;
         private string nombreProducto;
+        
+       
+        
+
        
         public event EventHandler StockActualizado;
 
@@ -23,9 +34,13 @@ namespace ProyectoHerrera
             InitializeComponent();
             this.idProducto = idProducto;
             this.nombreProducto = nombreProducto;
-            
 
-            txtProductoSeleccionado.Text = $"{nombreProducto}";
+
+        
+
+
+
+        txtProductoSeleccionado.Text = $"{nombreProducto}";
 
             txtStockNuevo.Text = ObtenerStockActual().ToString();
         }
@@ -45,6 +60,8 @@ namespace ProyectoHerrera
             try
             {
                 int cantidad = Convert.ToInt32(txtCantidad.Text);
+                int stockAnterior = ObtenerStockActual();
+
 
                 ProductoNegocio productoNegocio = new ProductoNegocio();
                 productoNegocio.AgregarStock(idProducto, cantidad);
@@ -54,7 +71,20 @@ namespace ProyectoHerrera
 
                 txtStockNuevo.Text = ObtenerStockActual().ToString();
 
-              
+                MovimientoStock movimiento = new MovimientoStock
+                {
+                    IdProducto = idProducto,
+                    IdTipoMovimiento = 1, // ✅ "Producción"
+                    IdUsuario = UsuarioLogueado.IdUsuario, // ✅ Usuario actual
+                    CantidadMovida = cantidad,
+                    StockAnterior = stockAnterior,
+                    StockPosterior = stockAnterior + cantidad,
+                    MotivoMovimiento = null 
+                };
+
+                MovimientoStockNegocio movimientoNegocio = new MovimientoStockNegocio();
+                movimientoNegocio.RegistrarMovimientoStock(movimiento);
+
 
             }
             catch (Exception ex)
@@ -66,29 +96,30 @@ namespace ProyectoHerrera
 
         private void btnEliminarStock_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                int cantidad = Convert.ToInt32(txtCantidad.Text);
+            int cantidad = Convert.ToInt32(txtCantidad.Text); // ✅ Obtener la cantidad antes de abrir el formulario
 
-                ProductoNegocio productoNegocio = new ProductoNegocio();
-                productoNegocio.EliminarStock(idProducto, cantidad);
-
-                MessageBox.Show("Stock eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               
-                txtStockNuevo.Text = ObtenerStockActual().ToString();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al eliminar stock: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            frmEliminarStock frmMotivo = new frmEliminarStock(idProducto, UsuarioLogueado.IdUsuario, cantidad);
+            frmMotivo.StockEliminado += FrmMotivo_StockEliminado; // ✅ Evento para actualizar stock después
+            frmMotivo.ShowDialog();
         }
+
+        private void FrmMotivo_StockEliminado(object sender, EventArgs e)
+        {
+            txtStockNuevo.Text = ObtenerStockActual().ToString(); // ✅ Se actualiza el stock en `frmGestionarStock`
+        }
+
+
 
         private void frmGestionarStock_Load(object sender, EventArgs e)
         {
             int stockActual = ObtenerStockActual();
             txtStockActual.Text = stockActual.ToString();
             txtStockNuevo.Text = "";
+
+            UsuarioLogueado = SesionUsuario.UsuarioActual; // ✅ Se asigna el usuario logueado automáticamente
+
+
+
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

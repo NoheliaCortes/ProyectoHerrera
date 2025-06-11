@@ -51,12 +51,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.PanelAcualizarproducto.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelAcualizarproducto
             // 
             this.PanelAcualizarproducto.BackColor = System.Drawing.Color.AliceBlue;
+            this.PanelAcualizarproducto.Controls.Add(this.label12);
+            this.PanelAcualizarproducto.Controls.Add(this.label11);
             this.PanelAcualizarproducto.Controls.Add(this.btnGuardar);
             this.PanelAcualizarproducto.Controls.Add(this.btnCancelar);
             this.PanelAcualizarproducto.Controls.Add(this.txtCantidadMinimaDescuento);
@@ -135,7 +139,7 @@
             // 
             // txtNombreProducto
             // 
-            this.txtNombreProducto.Location = new System.Drawing.Point(143, 45);
+            this.txtNombreProducto.Location = new System.Drawing.Point(143, 65);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(381, 20);
             this.txtNombreProducto.TabIndex = 15;
@@ -263,11 +267,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 48);
+            this.label1.Location = new System.Drawing.Point(25, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre del producto: ";
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.SteelBlue;
+            this.label11.Location = new System.Drawing.Point(0, 35);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(575, 2);
+            this.label11.TabIndex = 22;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(201, 7);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(171, 28);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Actualizar producto";
             // 
             // frmActualizarProducto
             // 
@@ -309,5 +331,7 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txtCantidadMinimaDescuento;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }

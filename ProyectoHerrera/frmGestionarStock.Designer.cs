@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnEliminarStock = new System.Windows.Forms.Button();
             this.btnAgregarStock = new System.Windows.Forms.Button();
@@ -39,32 +38,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtProductoSeleccionado = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Controls.Add(this.btnEliminarStock);
-            this.groupBox1.Controls.Add(this.btnAgregarStock);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtStockNuevo);
-            this.groupBox1.Controls.Add(this.txtCantidad);
-            this.groupBox1.Controls.Add(this.txtStockActual);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.txtProductoSeleccionado);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(155, 36);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(480, 378);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Gestionar Stock";
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(363, 225);
+            this.btnAceptar.Location = new System.Drawing.Point(394, 258);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 19;
@@ -74,7 +52,7 @@
             // 
             // btnEliminarStock
             // 
-            this.btnEliminarStock.Location = new System.Drawing.Point(323, 150);
+            this.btnEliminarStock.Location = new System.Drawing.Point(354, 183);
             this.btnEliminarStock.Name = "btnEliminarStock";
             this.btnEliminarStock.Size = new System.Drawing.Size(75, 23);
             this.btnEliminarStock.TabIndex = 18;
@@ -84,7 +62,7 @@
             // 
             // btnAgregarStock
             // 
-            this.btnAgregarStock.Location = new System.Drawing.Point(242, 150);
+            this.btnAgregarStock.Location = new System.Drawing.Point(273, 183);
             this.btnAgregarStock.Name = "btnAgregarStock";
             this.btnAgregarStock.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarStock.TabIndex = 17;
@@ -95,7 +73,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(50, 207);
+            this.label8.Location = new System.Drawing.Point(81, 240);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 13);
             this.label8.TabIndex = 16;
@@ -103,21 +81,21 @@
             // 
             // txtStockNuevo
             // 
-            this.txtStockNuevo.Location = new System.Drawing.Point(123, 201);
+            this.txtStockNuevo.Location = new System.Drawing.Point(154, 234);
             this.txtStockNuevo.Name = "txtStockNuevo";
             this.txtStockNuevo.Size = new System.Drawing.Size(100, 20);
             this.txtStockNuevo.TabIndex = 15;
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(123, 150);
+            this.txtCantidad.Location = new System.Drawing.Point(154, 183);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(100, 20);
             this.txtCantidad.TabIndex = 14;
             // 
             // txtStockActual
             // 
-            this.txtStockActual.Location = new System.Drawing.Point(123, 116);
+            this.txtStockActual.Location = new System.Drawing.Point(154, 149);
             this.txtStockActual.Name = "txtStockActual";
             this.txtStockActual.Size = new System.Drawing.Size(100, 20);
             this.txtStockActual.TabIndex = 13;
@@ -125,7 +103,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(47, 119);
+            this.label7.Location = new System.Drawing.Point(78, 152);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 13);
             this.label7.TabIndex = 12;
@@ -133,7 +111,7 @@
             // 
             // txtProductoSeleccionado
             // 
-            this.txtProductoSeleccionado.Location = new System.Drawing.Point(136, 49);
+            this.txtProductoSeleccionado.Location = new System.Drawing.Point(167, 82);
             this.txtProductoSeleccionado.Name = "txtProductoSeleccionado";
             this.txtProductoSeleccionado.Size = new System.Drawing.Size(302, 20);
             this.txtProductoSeleccionado.TabIndex = 10;
@@ -141,7 +119,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 49);
+            this.label6.Location = new System.Drawing.Point(48, 82);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 13);
             this.label6.TabIndex = 9;
@@ -151,20 +129,27 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox1);
+            this.BackColor = System.Drawing.Color.MistyRose;
+            this.ClientSize = new System.Drawing.Size(536, 354);
+            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.btnEliminarStock);
+            this.Controls.Add(this.btnAgregarStock);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtProductoSeleccionado);
+            this.Controls.Add(this.txtStockNuevo);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtCantidad);
+            this.Controls.Add(this.txtStockActual);
             this.Name = "frmGestionarStock";
             this.Text = "Agregar Stock";
             this.Load += new System.EventHandler(this.frmGestionarStock_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtStockNuevo;
         private System.Windows.Forms.TextBox txtCantidad;

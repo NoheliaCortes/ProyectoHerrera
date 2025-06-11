@@ -78,7 +78,8 @@ namespace ProyectoHerrera
 
         private void btnInsumos_Click(object sender, EventArgs e)
         {
-
+            frmInsumos frm = new frmInsumos();
+            frm.ShowDialog();
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
@@ -93,10 +94,7 @@ namespace ProyectoHerrera
             frm.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void RedondearBoton(Button boton, int radio)
         {
@@ -112,6 +110,18 @@ namespace ProyectoHerrera
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             frmUsuarios frm = new frmUsuarios();
+            frm.ShowDialog();
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            frmMenuReportes frm = new frmMenuReportes();
+            frm.ShowDialog();
+        }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            frmCompra frm = new frmCompra();
             frm.ShowDialog();
         }
     }

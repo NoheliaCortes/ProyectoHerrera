@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,37 @@ namespace ProyectoHerrera
         private void frmDetalleVenta_Load(object sender, EventArgs e)
         {
             VentaNegocio ventaNegocio = new VentaNegocio();
-            dgvDetalleVenta.DataSource = ventaNegocio.ObtenerDetalleVenta(idVenta);
+            DataTable dtDetalles = ventaNegocio.ObtenerDetalleVenta(idVenta);
+
+            // ✅ Agregar nueva columna para el descuento
+            if (!dtDetalles.Columns.Contains("descuento_aplicado"))
+            {
+                dtDetalles.Columns.Add("descuento_aplicado", typeof(decimal));
+            }
+
+            // ✅ Calcular el descuento manualmente
+            foreach (DataRow row in dtDetalles.Rows)
+            {
+                decimal precioUnitario = Convert.ToDecimal(row["precio_producto"]);
+                int cantidad = Convert.ToInt32(row["cantidad"]);
+                decimal subtotal = Convert.ToDecimal(row["subtotal"]);
+
+                decimal precioTotal = cantidad * precioUnitario;
+                decimal descuentoAplicado = precioTotal - subtotal; // ✅ Cálculo del descuento
+
+                row["descuento_aplicado"] = descuentoAplicado;
+            }
+
+            dgvDetalleVenta.DataSource = dtDetalles;
+
+            // ✅ Ajustar nombres de columnas para claridad
+            dgvDetalleVenta.Columns["nombre_producto"].HeaderText = "Producto";
+            dgvDetalleVenta.Columns["cantidad"].HeaderText = "Cantidad";
+            dgvDetalleVenta.Columns["precio_producto"].HeaderText = "Precio Unitario";
+            dgvDetalleVenta.Columns["descuento_aplicado"].HeaderText = "Descuento Aplicado";
+            dgvDetalleVenta.Columns["subtotal"].HeaderText = "Subtotal";
+
+            dgvDetalleVenta.Columns["descuento_aplicado"].DisplayIndex = 3;
 
             CargarDatosVenta();
         }
@@ -44,7 +75,7 @@ namespace ProyectoHerrera
                     txtUsuario.Text = datosVenta.Usuario;
                     txtCliente.Text = datosVenta.Cliente;
                     txtFecha.Text = datosVenta.FechaVenta.ToString("dd/MM/yyyy");
-                    txtTotal.Text = datosVenta.Total.ToString("C2"); // ✅ Formato moneda
+                    txtTotal.Text = datosVenta.Total.ToString("C2", CultureInfo.CreateSpecificCulture("es-NI")); // ✅ Formato moneda
                 }
                 else
                 {

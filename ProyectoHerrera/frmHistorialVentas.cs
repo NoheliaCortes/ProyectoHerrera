@@ -1,4 +1,5 @@
 ﻿using BNLayer;
+using DataLayer.Modelos;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,23 @@ namespace ProyectoHerrera
                 dgvHistorialVentas.Columns.Add(imgDetalles);
             }
 
+
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+            List<Cliente> clientes = clienteNegocio.ObtenerClientes();
+
+            cmbCliente.DataSource = clientes;
+            cmbCliente.DisplayMember = "Nombre";
+            cmbCliente.ValueMember = "IdCliente";
+            cmbCliente.SelectedIndex = -1;
+             
+
+            UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+            List<Usuario> usuarios = usuarioNegocio.ObtenerUsuarios();
+            cmbUsuario.DataSource = usuarios;
+            cmbUsuario.DisplayMember = "NombreUsuario";
+            cmbUsuario.ValueMember = "IdUsuario";
+            cmbUsuario.SelectedIndex = -1;
+
         }
 
         private void dgvHistorialVentas_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -71,8 +89,30 @@ namespace ProyectoHerrera
             }
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            DateTime? fechaInicio = dtpFechaInicio.Value.Date;
+            DateTime? fechaFin = dtpFechaFin.Value.Date;
 
+            // ✅ Obtener ID de cliente y usuario desde los `ComboBox`
+            int? idCliente = (cmbCliente.SelectedItem != null) ? ((Cliente)cmbCliente.SelectedItem).IdCliente : (int?)null;
+            int? idUsuario = (cmbUsuario.SelectedItem != null) ? ((Usuario)cmbUsuario.SelectedItem).IdUsuario : (int?)null;
 
+            VentaNegocio ventaNegocio = new VentaNegocio();
+            dgvHistorialVentas.DataSource = ventaNegocio.ObtenerVentasPorFiltro(fechaInicio, fechaFin, idCliente, idUsuario);
+        }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dtpFechaInicio.Value = DateTime.Today;
+            dtpFechaFin.Value = DateTime.Today;
+            cmbCliente.SelectedIndex = -1; // ✅ Deseleccionar cliente
+            cmbUsuario.SelectedIndex = -1; // ✅ Deseleccionar usuario
+
+            // ✅ Mostrar todas las ventas sin filtros
+            VentaNegocio ventaNegocio = new VentaNegocio();
+            dgvHistorialVentas.DataSource = ventaNegocio.ObtenerHistorialVentas();
+
+        }
     }
 }

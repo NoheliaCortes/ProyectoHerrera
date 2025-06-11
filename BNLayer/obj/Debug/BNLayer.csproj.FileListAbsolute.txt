@@ -35,3 +35,7 @@ C:\Cursos\3 semestre\integrador\Sistema\BNLayer\obj\Debug\BNLayer.csproj.CoreCom
 C:\Cursos\3 semestre\integrador\Sistema\BNLayer\obj\Debug\BNLayer.csproj.Up2Date
 C:\Cursos\3 semestre\integrador\Sistema\BNLayer\obj\Debug\BNLayer.dll
 C:\Cursos\3 semestre\integrador\Sistema\BNLayer\obj\Debug\BNLayer.pdb
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\itextsharp.dll
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\corte\OneDrive\Documents\Proyectos\ProyectoHerrera\BNLayer\bin\Debug\itextsharp.xml

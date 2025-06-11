@@ -223,6 +223,16 @@ namespace ProyectoHerrera
 
         }
 
+        private void lblNombre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void SetControles(bool edicion)
         {
             txtNombre.Enabled = edicion;

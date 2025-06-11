@@ -17,7 +17,7 @@ namespace ProyectoHerrera
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmInicio());
+            Application.Run(new frmIniciarSesion());
         }
 
         public static class SesionUsuario
